@@ -8,6 +8,7 @@ window.onload = function(){
 			switch (e.keyCode){
 				case VK_UP:
 					console.log("UP");
+					removePage("firstPage");
 				break;
 				default:
 					console.log("nagh");
@@ -16,4 +17,4 @@ window.onload = function(){
 				}
 			}
 	},false);
-}
+};
