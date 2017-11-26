@@ -1,3 +1,4 @@
+
 function removePage(pageContainerClass){
 	if($("."+pageContainerClass).length > 0){
 		$("."+pageContainerClass).remove();
