@@ -6,11 +6,11 @@ function authToken(){
 	var tokenSecret;
 	
 	var key = cSecret + "&";
-	var base = 'GET&https%3A%2F%2Fwww.flickr.com%2Fservices%2Foauth%2Frequest_token&oauth_callback%3Doob%26oauth_consumer_key%3D4db0036c5a3de87a0bb36e2d99b24fec%26oauth_nonce%3D57175122%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1512001893029%26oauth_version%3D1.0';
+	var base = 'GET&https%3A%2F%2Fwww.flickr.com%2Fservices%2Foauth%2Frequest_token&oauth_callback%3Doob%26oauth_consumer_key%3D4db0036c5a3de87a0bb36e2d99b24fec%26oauth_nonce%3D51288000%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1512383573847%26oauth_version%3D1.0';
 	
-	var firma = 'yr+G8WTtoBCDOc05MMU1zRM/xHE=';
+	var firma = 'KA7l0tfrCYGUPO1hyYklSyWvxgQ=';
 	
-	var url = 'https://www.flickr.com/services/oauth/request_token?oauth_callback=oob&oauth_consumer_key=4db0036c5a3de87a0bb36e2d99b24fec&oauth_nonce=57175122&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1512001893029&oauth_version=1.0&oauth_signature=yr+G8WTtoBCDOc05MMU1zRM/xHE=';
+	var url = 'https://www.flickr.com/services/oauth/request_token?oauth_callback=oob&oauth_consumer_key=4db0036c5a3de87a0bb36e2d99b24fec&oauth_nonce=51288000&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1512383573847&oauth_version=1.0&oauth_signature=KA7l0tfrCYGUPO1hyYklSyWvxgQ=';
 	
 			
 	console.log(oauth_nonce);
