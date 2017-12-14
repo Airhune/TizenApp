@@ -2,8 +2,6 @@ function userAuthorization(oauth_token){
 	var url = 'https://www.flickr.com/services/oauth/authorize?oauth_token=' + oauth_token;
 	window.location.replace(url);
 	console.log(url);
-	
-	
 }
 
 function requestToken(){
@@ -62,7 +60,51 @@ function authToken(handleData){
 //	
 //	console.log(requestUrl);
 	
-	//Busqueda del usuario mediante username
-	var requestUrl = 'http://api.flickr.com/services/rest/?&method=flickr.people.findByUsername&api_key=4db0036c5a3de87a0bb36e2d99b24fec&username=Airhune';
+}
 
+function getMyFlickrPhotosInfo(id){
+	var url = 'https://api.flickr.com/services/rest/?&method=flickr.people.getPhotos&api_key=4db0036c5a3de87a0bb36e2d99b24fec&user_id=' + id;
+	
+    var url_photo;
+    
+	$.ajax({
+	      url : url,
+	      success : function(response) {
+	        console.log(response);
+	        
+	        var photos = response.getElementsByTagName("photo");
+	        console.log(photos['0'])
+	        var photo_id = photos['0'].id;
+	        console.log(photo_id);
+	        var photo_secret = photos['0'].secret;
+	        console.log(photo_secret);
+	        var photo_server = photos['0'].server;
+	        console.log(photo_server);
+	        var photo_farm = photos['0'].farm;
+	        console.log(photo_farm);
+	        
+	        //url_photo = 'https://farm' + photo_server + '.staticflickr.com/' + photo_server + '/' + photo_id + '_' + photo_secret;
+	        //console.log(url_photo);
+	      }
+		});
+}
+
+function getMyFlickrId(){
+	//Busqueda del usuario mediante username
+	var url = 'https://api.flickr.com/services/rest/?&method=flickr.people.findByUsername&api_key=4db0036c5a3de87a0bb36e2d99b24fec&username=Airhune';
+	var user_id;
+	
+	var xmlhttp = new XMLHttpRequest();
+	  xmlhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	xmlDoc = this.responseXML;
+	    	txt = "";
+	    	x = xmlDoc.getElementsByTagName("user");
+	    	user_id = $(x['0']).attr("id");
+	    	getMyFlickrPhotosInfo(user_id);
+	    	
+	    }
+	  };
+	  xmlhttp.open("GET", url, true);
+	  xmlhttp.send();
 }
