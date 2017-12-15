@@ -59,32 +59,29 @@ function authToken(handleData){
 //				'&oauth_callback=oob';
 //	
 //	console.log(requestUrl);
-	
+	 
 }
 
 function getMyFlickrPhotosInfo(id){
-	var url = 'https://api.flickr.com/services/rest/?&method=flickr.people.getPhotos&api_key=4db0036c5a3de87a0bb36e2d99b24fec&user_id=' + id;
+	var url = 'https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=4db0036c5a3de87a0bb36e2d99b24fec&user_id=' + id;
 	
     var url_photo;
     
 	$.ajax({
+		  type: "GET",
+		  dataType: "xml",
 	      url : url,
 	      success : function(response) {
-	        console.log(response);
-	        
-	        var photos = response.getElementsByTagName("photo");
-	        console.log(photos['0'])
-	        var photo_id = photos['0'].id;
-	        console.log(photo_id);
-	        var photo_secret = photos['0'].secret;
-	        console.log(photo_secret);
-	        var photo_server = photos['0'].server;
-	        console.log(photo_server);
-	        var photo_farm = photos['0'].farm;
-	        console.log(photo_farm);
-	        
-	        //url_photo = 'https://farm' + photo_server + '.staticflickr.com/' + photo_server + '/' + photo_id + '_' + photo_secret;
-	        //console.log(url_photo);
+	        //console.log(response);
+	    	$(response).find("photo").each(function(){
+	    		 var photo_id = $(this).attr("id");
+	    		 var photo_server = $(this).attr("server");
+	    		 var photo_farm = $(this).attr("farm");
+	    		 var photo_secret = $(this).attr("secret");
+	    		 
+	    		 url_photo = 'https://farm' + photo_farm + '.staticflickr.com/' + photo_server + '/' + photo_id + '_' + photo_secret + '.jpg';
+	 	        console.log(url_photo);
+	    	})
 	      }
 		});
 }
