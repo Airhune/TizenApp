@@ -1,7 +1,7 @@
 function userAuthorization(oauth_token){
 	var url = 'https://www.flickr.com/services/oauth/authorize?oauth_token=' + oauth_token;
 	window.location.replace(url);
-	console.log(url);
+	//console.log(url);
 }
 
 function requestToken(){
@@ -12,10 +12,10 @@ function requestToken(){
 	  	values = data.split('&');
 	  	
 	  	oauth_token = values['1'].split("=");
-		console.log(oauth_token);
+		//console.log(oauth_token);
 		
 		oauth_token_secret = values['2'].split("=");
-		console.log(oauth_token_secret);
+		//console.log(oauth_token_secret);
 	
 		
 		userAuthorization(oauth_token['1']);
@@ -45,27 +45,13 @@ function authToken(handleData){
         handleData(response);
       }
 	});
-	
-	
-//	console.log(oauth_nonce);
-//	console.log(timestamp);
-//	
-//	var requestUrl = 'https://www.flickr.com/services/oauth/request_token' +
-//				'?oauth_nonce=' + oauth_nonce +
-//				'&oauth_timestamp=' + timestamp +
-//				'&oauth_consumer_key=' + cKey +
-//				'&oauth_signature_method=HMAC-SHA1'+
-//				'&oauth_version=1.0' +
-//				'&oauth_callback=oob';
-//	
-//	console.log(requestUrl);
 	 
 }
 
 function getMyFlickrPhotosInfo(id){
 	var url = 'https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=4db0036c5a3de87a0bb36e2d99b24fec&user_id=' + id;
 	
-    var url_photo;
+	var photos = new Array();
     
 	$.ajax({
 		  type: "GET",
@@ -78,13 +64,73 @@ function getMyFlickrPhotosInfo(id){
 	    		 var photo_server = $(this).attr("server");
 	    		 var photo_farm = $(this).attr("farm");
 	    		 var photo_secret = $(this).attr("secret");
+	    		 var photo_url = 'https://farm' + photo_farm + '.staticflickr.com/' + photo_server + '/' + photo_id + '_' + photo_secret + '.jpg';
 	    		 
-	    		 url_photo = 'https://farm' + photo_farm + '.staticflickr.com/' + photo_server + '/' + photo_id + '_' + photo_secret + '.jpg';
-	 	        console.log(url_photo);
+	    		 photos.push({id: photo_id, server: photo_server, farm: photo_farm, secret: photo_secret, url: photo_url});
+	    	
 	    	})
+	    	
+	    	getPhotoGeo(photos);
+	    	
 	      }
-		});
+	});
+	
+	
+	
 }
+
+function getPhotoGeo(photos){
+	var aux = new Array();
+	
+	for (i = 0; i < photos.length; i++){
+		var url = 'https://api.flickr.com/services/rest/?&method=flickr.photos.getInfo&api_key=4db0036c5a3de87a0bb36e2d99b24fec&photo_id=' + photos[i].id + '&secret=' + photos[i].secret;
+				
+				
+		$.ajax({
+			  type: "GET",
+			  dataType: "xml",
+		      url : url,
+		      success : function(response) {
+		    	  console.log(response);
+
+		    	  if($(response).find("country").length == 0){
+		    		  
+		    		  var photo_id = $(response).find("photo")[0].id;
+		    		  aux.push({ id: photo_id, loc: ""});
+		    		  
+		    	  }else {
+		    		  var photo_loc = $(response).find("country")[0].innerHTML;
+		    		  var photo_id = $(response).find("photo")[0].id;
+				      
+		    		  aux.push({id: photo_id, loc: photo_loc});
+		    	  }
+		        
+		    	
+		    	  if (aux.length == photos.length){
+		    		  console.log("macheo");
+		    		  
+		    		  for(j = 0; j < photos.length; j++){
+		    			  for (h = 0; h < aux.length; h++){
+		    				  if (photos[j].id == aux[h].id){
+		    					  photos[j].location = aux[h].loc;
+		    					  
+		    				  }
+		    			  }
+		    		  }
+		    		  
+		    		  console.log(photos);
+		    		  //EXISTE SOLO AQUI
+		    	  }
+		    	  
+		      }
+		
+		});
+			
+	}
+	
+	console.log(aux);
+}
+
 
 function getMyFlickrId(){
 	//Busqueda del usuario mediante username
@@ -98,8 +144,7 @@ function getMyFlickrId(){
 	    	txt = "";
 	    	x = xmlDoc.getElementsByTagName("user");
 	    	user_id = $(x['0']).attr("id");
-	    	getMyFlickrPhotosInfo(user_id);
-	    	
+	    	getMyFlickrPhotosInfo(user_id); 
 	    }
 	  };
 	  xmlhttp.open("GET", url, true);
