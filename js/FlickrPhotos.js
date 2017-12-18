@@ -24,7 +24,6 @@ function requestToken(){
 	});
 }
 
-
 function authToken(handleData){
 	var oauth_nonce = Math.floor((Math.random() * 100000000) + 1);
 	var timestamp = Date.now();
@@ -48,7 +47,34 @@ function authToken(handleData){
 	 
 }
 
+function flickrForm(){
+	$(".mainPage").empty();
+	
+	$form = $("<form></form>");
+	
+	$form.append('<p>Username</p>');
+	$form.append('<input type="text" name="name" placeholder="username">');
+	$form.append('<input onclick= "getForm()" type="button" value="Accept">');
+	$(".mainPage").append($form);
+	
+	console.log("flickr form");
+}
+
+ function getForm(){
+	 console.log($('form').serializeArray());
+	 var username = $('form').serializeArray()[0].value;
+	 $(".mainPage").empty();
+	 getMyFlickrId(username);
+ }
+ 
+ function showFlickrPhotos(photos){
+	 for (i = 0; i < 20; i++){
+		 $('.mainPage').append('<img src="'+ photos[i].url + '" />');
+	 }
+ }
+
 function getMyFlickrPhotosInfo(id){
+		
 	var url = 'https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=4db0036c5a3de87a0bb36e2d99b24fec&user_id=' + id;
 	
 	var photos = new Array();
@@ -84,8 +110,7 @@ function getPhotoGeo(photos){
 	
 	for (i = 0; i < photos.length; i++){
 		var url = 'https://api.flickr.com/services/rest/?&method=flickr.photos.getInfo&api_key=4db0036c5a3de87a0bb36e2d99b24fec&photo_id=' + photos[i].id + '&secret=' + photos[i].secret;
-				
-				
+					
 		$.ajax({
 			  type: "GET",
 			  dataType: "xml",
@@ -112,14 +137,13 @@ function getPhotoGeo(photos){
 		    		  for(j = 0; j < photos.length; j++){
 		    			  for (h = 0; h < aux.length; h++){
 		    				  if (photos[j].id == aux[h].id){
-		    					  photos[j].location = aux[h].loc;
-		    					  
+		    					  photos[j].location = aux[h].loc; 
 		    				  }
 		    			  }
 		    		  }
 		    		  
 		    		  console.log(photos);
-		    		  //EXISTE SOLO AQUI
+		    		  showFlickrPhotos(photos);
 		    	  }
 		    	  
 		      }
@@ -131,10 +155,9 @@ function getPhotoGeo(photos){
 	console.log(aux);
 }
 
-
-function getMyFlickrId(){
+function getMyFlickrId(username){
 	//Busqueda del usuario mediante username
-	var url = 'https://api.flickr.com/services/rest/?&method=flickr.people.findByUsername&api_key=4db0036c5a3de87a0bb36e2d99b24fec&username=Airhune';
+	var url = 'https://api.flickr.com/services/rest/?&method=flickr.people.findByUsername&api_key=4db0036c5a3de87a0bb36e2d99b24fec&username=' + username;
 	var user_id;
 	
 	var xmlhttp = new XMLHttpRequest();
