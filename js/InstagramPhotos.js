@@ -42,9 +42,6 @@
 //}
 
 
-
-
-
 function getPhotos(){
 	var token = '647584891.9199f2e.61943c901362451babdf80aec4271147';
     var userid = 647584891;
