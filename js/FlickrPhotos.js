@@ -57,19 +57,23 @@ function flickrForm(){
 	$form.append('<input onclick= "getForm()" type="button" value="Accept">');
 	$(".mainPage").append($form);
 	
-	console.log("flickr form");
+	//console.log("flickr form");
 }
 
  function getForm(){
-	 console.log($('form').serializeArray());
+	 //console.log($('form').serializeArray());
 	 var username = $('form').serializeArray()[0].value;
 	 $(".mainPage").empty();
 	 getMyFlickrId(username);
  }
  
  function showFlickrPhotos(photos){
-	 for (i = 0; i < 20; i++){
-		 $('.mainPage').append('<img src="'+ photos[i].url + '" />');
+	 var gallery = $("<div class=gallery></div>");
+	 for (i = 0; i < photos.length; i++){
+		 //var photo = $("<div class=photo></div>");
+		// photo.append('<img class="image" src="'+ photos[i].url + '" />');
+		 gallery.append('<img class="image" src="'+ photos[i].url + '" />');
+		 $('.mainPage').append(gallery);
 	 }
  }
 
@@ -84,9 +88,10 @@ function getMyFlickrPhotosInfo(id){
 		  dataType: "xml",
 	      url : url,
 	      success : function(response) {
-	        //console.log(response);
+	        console.log(response);
 	    	$(response).find("photo").each(function(){
 	    		 var photo_id = $(this).attr("id");
+	    		 var photo_title = $(this).attr("title");
 	    		 var photo_server = $(this).attr("server");
 	    		 var photo_farm = $(this).attr("farm");
 	    		 var photo_secret = $(this).attr("secret");
@@ -132,7 +137,7 @@ function getPhotoGeo(photos){
 		        
 		    	
 		    	  if (aux.length == photos.length){
-		    		  console.log("macheo");
+		    		  //console.log("macheo");
 		    		  
 		    		  for(j = 0; j < photos.length; j++){
 		    			  for (h = 0; h < aux.length; h++){
@@ -142,7 +147,7 @@ function getPhotoGeo(photos){
 		    			  }
 		    		  }
 		    		  
-		    		  console.log(photos);
+		    		  //console.log(photos);
 		    		  showFlickrPhotos(photos);
 		    	  }
 		    	  
@@ -152,7 +157,7 @@ function getPhotoGeo(photos){
 			
 	}
 	
-	console.log(aux);
+	//console.log(aux);
 }
 
 function getMyFlickrId(username){
