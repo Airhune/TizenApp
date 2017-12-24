@@ -6,11 +6,11 @@ window.onload = function(){
 		if(e.keyCode){
 			switch (e.keyCode){
 				case VK_UP:
-					console.log("UP");
-					removePage("firstPage");
-				break;
+					break;
+				case VK_ENTER:
+					goPage($(".focused").attr("name"));
+					break;
 				default:
-					console.log("nagh");
 						break;
 						
 				}

@@ -16,10 +16,16 @@ function onResolveError(e) {
 	console.log('message: ' + e.message);
 }
 
+window.onLoad = function(){
+	console.log("onload");
+	tizen.filesystem.resolve('documents', onResolveSuccess, onResolveError, 'rw');
+};
+
+
 //Initialize function
 var init = function () {
-	
-	tizen.filesystem.resolve('documents', onResolveSuccess, onResolveError, 'rw');
+	console.log("var init");
+	//tizen.filesystem.resolve('documents', onResolveSuccess, onResolveError, 'rw');
 	
 };
 
