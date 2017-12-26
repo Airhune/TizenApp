@@ -7,6 +7,9 @@
 	height: 180px;
 }
 
-.img{
-	
+.firstPage{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 1400px;
+	filter: blur(5px));
 }

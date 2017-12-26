@@ -6,6 +6,7 @@ $(document).ready(function(){
 	    	$(event.currentTarget).css({
 				border: '3px solid red'
 				});
+	    	//if current page 
 	        });
 	   
 	        controllerProvider.onBlurred(function(event, originalEvent) {
