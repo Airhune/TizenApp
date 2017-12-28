@@ -7,6 +7,13 @@ $(document).ready(function(){
 	    	$(event.currentTarget).css({
 				border: '3px solid red'
 				});
+	    	
+	    	//if map is ready
+	    	if($('.countryPanel').length > 0){
+	    		//set to the panel the value of the country
+	    		$('.countryPanel').text($(event.currentTarget).attr('id'));
+	    	}
+	    	
 	        });
 	    
 	    controllerProvider.onSelected(function(event, originalEvent) {
@@ -18,15 +25,18 @@ $(document).ready(function(){
 	    	if(($(event.currentTarget).attr("id")) === 'loginButton'){
 	    		//check the value of the input
 	    		var username = $('#testInput').val();
+	    		//ToDo:
 	    		if(username.length == 0){
 	    			//some advice?
 	    			console.log("Error message: username is empty");
 	    		}
 	    		else{
 	    			console.log("Go to Pictures");
+	    			//removePage();
 	    			//goPage("PictureDirectory");
 	    		}	    		
 	    	}
+	    	console.log($(event.currentTarget));
 	    	
 		});
 	    

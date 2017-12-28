@@ -1,20 +1,33 @@
 
 window.onload = function(){
 	var currentPage = 2;
-
+	var lastPage = 2;
+	
 	document.addEventListener("keydown", function(e) {
 		if(e.keyCode){
+			
+			//Generic Key-Cases
+			switch (e.keyCode){
+				case VK_BACK:
+						goPage(lastPage);
+					break;
+				default:
+						break;
+			}
+			//MAIN PAGE
 			if(currentPage == 1){
 				changeBackground();
 				switch (e.keyCode){
 					case VK_ENTER:
 						goPage($(".focused").attr("name"));
+						lastPage = "flickrForm";
 						currentPage = 2;
 						break;
 					default:
 							break;
 					}
 			}
+			//FLICKR FORM
 			if(currentPage == 2){
 				switch (e.keyCode){
 					case VK_ENTER:
@@ -33,6 +46,16 @@ window.onload = function(){
 						break;
 					default:
 							break;
+				}
+			}
+			//EUROPE MAP
+			if(currentPage == 3){
+				switch (e.keyCode){
+				case VK_ENTER:
+					console.log(e.currentTarget);
+					break;
+				default:
+						break;
 				}
 			}
 			

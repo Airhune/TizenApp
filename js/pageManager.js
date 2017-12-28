@@ -58,12 +58,16 @@ function createPage(numPage){
 //		</div>
 			break;		
 		case "europeMap":
-//		<div class="container-fluid europeMap">
-//			<img class="bg" src="https://maproom.net/wp-content/uploads/03-Europe-country-outlines.jpg" alt="">
-//			<button class="countryButton" id="spain" focusable>4</button>
-//			<button class="countryButton" id="portugal" focusable>2</button>
-//			
-//		</div>
+//			<div class="container-fluid mainContainer">
+//			<div class="container-fluid europeMap">
+//				<img class="bg" src="./img/m1.jpg" alt="">
+//				<div>
+//					<p class="countryPanel">SPAIN</p>
+//				</div>
+//				<button class="countryButton" id="spain" focusable data-focusable-initial-focus="true">4</button>
+//				<button class="countryButton" id="portugal" focusable>2</button>
+//				
+//			</div>
 			break;
 		default:
 			console.log("Error goPage");
