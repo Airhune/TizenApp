@@ -1,0 +1,63 @@
+/* OPCION A */
+/* .gallery{
+    overflow: hidden;
+    text-align: center;
+}
+
+.gallery .image{
+	  max-height: 300px;
+	  overflow: hidden;
+	  box-sizing: border-box;
+	  background: white;
+	  color: black;
+	  padding: 5px;
+} 
+ */
+
+/* OPCION B */
+html {
+  font-size: 16px;
+}
+
+.gallery {
+  max-width: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 100px;
+}
+
+.photo {
+  background-color: #333;
+  min-width: 300px;
+  min-height: 300px;
+  position: relative;
+  flex: 1;
+  overflow:hidden;
+  
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+
+.photo .image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 1px;
+  background-color: white;
+  
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.photo:hover .image{
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+}
