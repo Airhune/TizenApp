@@ -68,13 +68,22 @@ function flickrForm(){
  }
  
  function showFlickrPhotos(photos){
-	 var gallery = $("<div class=gallery></div>");
+	 var gallery = $("<div id=gallery class=gallery></div>");
 	 for (i = 0; i < photos.length; i++){
-		 //var photo = $("<div class=photo></div>");
-		// photo.append('<img class="image" src="'+ photos[i].url + '" />');
-		 gallery.append('<img class="image" src="'+ photos[i].url + '" />');
+		 var photo = $("<div class=photo></div>");
+		 photo.append('<img class="image" id="' + photos[i].id +  '" src="'+ photos[i].url + '" />');
+		 //gallery.append('<img class="image" src="'+ photos[i].url + '" />');
+		 gallery.append(photo);
 		 $('.mainPage').append(gallery);
 	 }
+	 
+	var im = document.getElementById('gallery');
+	im.addEventListener('click', function(e){
+		var photo_selected = e.target;
+		console.log(photo_selected);
+		document.getElementById("gallery").style.visibility = "hidden";
+	})
+		  
  }
 
 function getMyFlickrPhotosInfo(id){
