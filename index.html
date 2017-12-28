@@ -20,41 +20,47 @@
    	<!--     ANIMATE   -->
 	<link rel="stylesheet" type="text/css" href="./css/animate.css"></link>
 	    
+	 <!--     jQKeyboard   -->
+	<link rel="stylesheet" type="text/css" href="./lib/jQKeyboard/jQKeyboard.css"></link>
+   	<script type="text/javascript" src="./lib/jQKeyboard/jQKeyboard.js"></script>
+	    
 	<!--     OUR JS's -->
 	<script type="text/javascript" src="./js/keycodes.js"></script>
 	<script type="text/javascript" src="./js/keyHandler.js"></script>
 	<script type="text/javascript" src="./js/pageManager.js"></script>
 	<script type="text/javascript" src="./js/gridManager.js"></script>
 	<script type="text/javascript" src="./js/fileSystemManager.js"></script>
+	<script type="text/javascript" src="./js/formSettings.js"></script>
 
 	<!--     OUR CSS'S -->
 	<link rel="stylesheet" type="text/css" href="./css/main.css"></link>
 	<link rel="stylesheet" type="text/css" href="./css/formStyle.css"></link>
+	<link rel="stylesheet" type="text/css" href="./css/mapStyle.css"></link>
 	
-
-	<script>
-			
+	<script type="text/javascript">
+	
 	</script>
+	<script type="text/javascript">
+            
+        </script>
 </head>
 <body>
  <div class="container-fluid mainContainer">
-	<div class="container-fluid flickrForm">
-	
-		<div class="body"></div>
-			<div class="grad">
-			</div>
-			<div class="header">
-				<div>
-				Flick
-				<span>r</span>
+			<div class="container-fluid flickrForm">			
+				<!-- <div class="body"></div>
+				<div class="grad"></div> -->
+				<div class="header">
+					<div>
+					Flick
+					<span>r</span>
+					</div>
+				</div>
+				<br>
+				<div class="login">
+					<input type="text" id="testInput" class="jQKeyboard" placeholder="username" name="user" value="" onblur="setFocusAgain()" autofocus><br>
+					<input type="button" id="loginButton" value="Login" focusable>
 				</div>
 			</div>
-			<br>
-			<div class="login">
-				<input type="text" placeholder="username" name="user" ><br>
-				<input type="button" value="Login" focusable>
-			</div>
-	  	
   </div> 
 </div> 
 	

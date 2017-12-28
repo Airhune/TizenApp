@@ -1,6 +1,6 @@
 
 window.onload = function(){
-	var currentPage = 1;
+	var currentPage = 2;
 
 	document.addEventListener("keydown", function(e) {
 		if(e.keyCode){
@@ -14,13 +14,34 @@ window.onload = function(){
 					default:
 							break;
 					}
-				}
-			
-			
 			}
+			if(currentPage == 2){
+				switch (e.keyCode){
+					case VK_ENTER:
+						//Initiate keyboard
+				    	activateKeypad('#testInput');
+				    	//Select inputs for the form...
+				    	
+				    	//...or try to Login
+			
+						break;
+					case VK_RIGHT:
+					case VK_UP:
+					case VK_DOWN:
+					case VK_LEFT:
+						e.preventDefault();
+						break;
+					default:
+							break;
+				}
+			}
+			
+		}
 			
 	},false);
 };
+
+
 
 function changeBackground(){
 	var image = $('.focused').attr("src");

@@ -8,12 +8,10 @@ function removePage(pageContainerClass){
 function goPage(numPage){
 	switch (numPage){
 		case "instagram":
-			console.log("GOES INSTAGRAM GOES!")
 			break;
 		case "flickr":
 			removePage("firstPage");
 			createPage("flickrForm");
-			console.log("GOES FLICKR GOES!")
 			break;
 		default:
 			console.log("Error goPage");
@@ -23,7 +21,7 @@ function goPage(numPage){
 
 function createPage(numPage){
 	switch (numPage){
-		case "flickrForm":
+		case "firstPage":
 //			<div class="container-fluid firstPage">
 //			<div class="row-lg-4 logoHeader"> 
 //				<img src="./img/instagram.jpg">
@@ -41,6 +39,31 @@ function createPage(numPage){
 //			    	<img id="pinterest" class="logoImg" src="./img/pinterest.jpg" name="pinterest" focusable>
 //			    </div>
 //		  	</div>
+			break;
+		case "flickrForm":
+//			<div class="container-fluid flickrForm">			
+//			<!-- <div class="body"></div>
+//			<div class="grad"></div> -->
+//			<div class="header">
+//				<div>
+//				Flick
+//				<span>r</span>
+//				</div>
+//			</div>
+//			<br>
+//			<div class="login">
+//				<input type="text" id="testInput" class="jQKeyboard" placeholder="username" name="user" value="" onblur="setFocusAgain()" autofocus><br>
+//				<input type="button" id="loginButton" value="Login" focusable>
+//			</div>
+//		</div>
+			break;		
+		case "europeMap":
+//		<div class="container-fluid europeMap">
+//			<img class="bg" src="https://maproom.net/wp-content/uploads/03-Europe-country-outlines.jpg" alt="">
+//			<button class="countryButton" id="spain" focusable>4</button>
+//			<button class="countryButton" id="portugal" focusable>2</button>
+//			
+//		</div>
 			break;
 		default:
 			console.log("Error goPage");
