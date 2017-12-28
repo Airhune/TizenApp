@@ -69,6 +69,14 @@ function createPage(numPage){
 //				
 //			</div>
 			break;
+		case "flickrGallery":
+//			<div class="mainPage">
+//			  <ul></ul>
+//			   	<button onclick= "getPhotos()" type="button">Instagram</button>
+//			   	<button onclick= "flickrForm()" type="button">Flickr</button>
+//			   	<button onclick= "" type="button">USB</button>
+//			  </div>
+			break;
 		default:
 			console.log("Error goPage");
 		break;
