@@ -16,11 +16,9 @@ function requestToken(){
 		
 		oauth_token_secret = values['2'].split("=");
 		//console.log(oauth_token_secret);
-	
 		
 		userAuthorization(oauth_token['1']);
 		
-
 	});
 }
 
@@ -68,14 +66,36 @@ function flickrForm(){
  }
  
  function showFlickrPhotos(photos){
+	 
+	 var logoHeader = $("<div class=row-lg-4 logoHeader></div>");
+	 var logo = $("<img class=logo src=./img/aperture.png>");
+	 
+	 logoHeader.append(logo);
+	 $('.mainPage').append(logoHeader);
+	 
+	 var gallerydiv = $("<div class=gallerydiv></div>");
 	 var gallery = $("<div id=gallery class=gallery></div>");
+	 
+	 $('.mainPage').append(gallerydiv);
+	 
+	 gallerydiv.append(gallery);
 	 for (i = 0; i < photos.length; i++){
 		 var photo = $("<div class=photo></div>");
 		 photo.append('<img class="image" id="' + photos[i].id +  '" src="'+ photos[i].url + '" />');
 		 //gallery.append('<img class="image" src="'+ photos[i].url + '" />');
 		 gallery.append(photo);
-		 $('.mainPage').append(gallery);
+		 gallerydiv.append(gallery);
 	 }
+	 
+	 var bar = $("<div id=bar class=bar></div>");
+		 
+	 var backB = $("<button class=galleryB type=button>Back</button>");
+	 var mapB = $("<button class=galleryB type=button>Map</button>");
+	 
+	 bar.append(backB);
+	 bar.append(mapB);
+	 
+	 $('.mainPage').append(bar);
 	 
 	var im = document.getElementById('gallery');
 	im.addEventListener('click', function(e){

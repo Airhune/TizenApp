@@ -23,22 +23,29 @@ function createPage(numPage){
 	switch (numPage){
 		case "firstPage":
 //			<div class="container-fluid firstPage">
-//			<div class="row-lg-4 logoHeader"> 
-//				<img src="./img/instagram.jpg">
+//		
+//				<div class="row-lg-4 logoHeader"> 
+//					<img class="logo" src="./img/aperture.png">
+//				</div>
+//				
+//		 		<div class="column">
+//		 			<div class="row-lg-4 text-center" >
+//				    	<p class="text">Choose your site</p>
+//				    </div>
+//				    <div class="row-lg-4 text-center" >
+//				    	<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickr" focusable>
+//				    </div>
+//				    
+//				    <div class="row-lg-4 text-center" >
+//				    	<img id="instagram" class="logoImg" src="./img/usb-large.png" name="instagram" focusable>
+//				    </div>
+//				    
+//				    <div class="row-lg-4 text-center" >
+//				    	<img id="pinterest" class="logoImg" src="./img/instagram-large.png" name="pinterest" focusable>
+//				    </div> 
+//			  	</div>
+//			  	
 //			</div>
-//	  		<div class="column">
-//	  		
-//			    <div class="row-lg-4 text-center" >
-//			    	<img id="flickr" class="logoImg" src="./img/flickr.jpg" name="flickr" focusable>
-//			    </div>
-//			    
-//			    <div class="row-lg-4 text-center" >
-//			    	<img id="instagram" class="logoImg" src="./img/instagram.jpg" name="instagram" focusable>
-//			    </div>
-//			    <div class="row-lg-4 text-center" >
-//			    	<img id="pinterest" class="logoImg" src="./img/pinterest.jpg" name="pinterest" focusable>
-//			    </div>
-//		  	</div>
 			break;
 		case "flickrForm":
 //			<div class="container-fluid flickrForm">			

@@ -3,7 +3,7 @@
     <tizen:application id="OvebFHThlQ.TVinteractiva" package="OvebFHThlQ" required_version="2.3"/>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
-    <icon src="icon.png"/>
+    <icon src="icon_aperture.png"/>
     <tizen:metadata key="http://samsung.com/tv/metadata/prelaunch.support" value="true"/>
     <name>TVinteractiva</name>
     <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
