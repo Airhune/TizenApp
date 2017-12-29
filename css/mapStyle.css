@@ -15,6 +15,7 @@ img.bg {
 
 .countryPanel{
 	position: absolute;
+	color: black;
 	text-transform: uppercase;
 	font-size: 60px;
 	left: 100px;
@@ -29,13 +30,27 @@ img.bg {
 	padding: 5px 20px 5px 20px;
 }
 
-#spain{
+
+/*COUNTRIES*/
+#Alemania{
 	position: absolute;
-	left: 363px;
+	left: 425px;
+    top: 600px;
+}
+
+#España{
+	position: absolute;
+	left: 163px;
     top: 887px;
 }
 
-#portugal{
+#Francia{
+	position: absolute;
+	left: 273px;
+    top: 730px;
+}
+
+#Portugal{
 	position: absolute;
 	left: 250px;
     top: 891px;

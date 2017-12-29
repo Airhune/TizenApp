@@ -145,9 +145,7 @@ function getPhotoGeo(photos){
 		    	  }
 		        
 		    	
-		    	  if (aux.length == photos.length){
-		    		  //console.log("macheo");
-		    		  
+		    	  if (aux.length == photos.length){		    		  
 		    		  for(j = 0; j < photos.length; j++){
 		    			  for (h = 0; h < aux.length; h++){
 		    				  if (photos[j].id == aux[h].id){
@@ -156,8 +154,32 @@ function getPhotoGeo(photos){
 		    			  }
 		    		  }
 		    		  
-		    		  //console.log(photos);
 		    		  showFlickrPhotos(photos);
+		    		  
+		    		  //Fill the country variable with the photos location
+		    		  var country = new Object();
+						country.name = photos[0].location;
+						country.numPhotos = 1;
+						countries.push(country);
+		    		  for(var i = 0; i < photos.length; i++){
+		    			  var countryExists = false;
+		    			  for(var u = 0; u < countries.length; u++){
+		    				  //if location do not exist		    				
+		    				  if(photos[i].location === countries[u].name){
+		    					countryExists = true;
+		    					break;
+		    				  }
+		    			  }
+		    			  if(countryExists){
+	    					  countries[u].numPhotos++;
+		    			  }else{
+		    				  var country = new Object();
+	    						country.name = photos[i].location;
+	    						country.numPhotos = 1;
+	    						countries.push(country);
+		    			  }
+		    		  }
+		    		  goPage("europeMap");
 		    	  }
 		    	  
 		      }
