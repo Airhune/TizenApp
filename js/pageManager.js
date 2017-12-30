@@ -23,6 +23,7 @@ function goPage(numPage){
 	}
 }
 
+
 function createPage(numPage){
 	switch (numPage){
 		case "firstPage":
@@ -60,8 +61,9 @@ function createPage(numPage){
 //				<input type="button" id="loginButton" value="Login" focusable>
 //			</div>
 //		</div>
-			var div_body = $('.mainContainer');
 
+			var div_body = $('.mainContainer');
+			
 			var div_flickrForm = $(document.createElement("div"));
 				div_flickrForm.attr('class','container-fluid flickrForm');
 				
@@ -79,24 +81,23 @@ function createPage(numPage){
 			var div_login = $(document.createElement("div"));
 				div_login.attr('class','login');
 			
-//			var input_text = $(document.createElement("input"));
-//				input_text.attr('type','text');
-//				input_text.attr('id','testInput');
-//				input_text.attr('class','jQKeyboard');
-//				input_text.attr('placeholder','username');
-//				input_text.attr('name','user');
-//				input_text.attr('value','');
-//				input_text.attr('autofocus','');
-//				input_text.attr('onblur','setFocusAgain()');
+			var input_text = $(document.createElement("input"));
+				input_text.attr('type','text');
+				input_text.attr('id','testInput');
+				input_text.attr('class','jQKeyboard');
+				input_text.attr('placeholder','username');
+				input_text.attr('name','user');
+				input_text.attr('value','');
+				input_text.attr('autofocus','');
+				input_text.attr('onblur','setFocusAgain()');
 			var input_text = $("<input type='text' id='testInput' class='jQKeyboard' placeholder='username' name='user' value='' onblur='setFocusAgain()' autofocus>");
 	
 				
-//			var input_button = $(document.createElement("input"));
-//				input_button.attr('type','button');
-//				input_button.attr('id','loginButton');
-//				input_button.attr('value','Login');
-//				input_button.attr('focusable','');
-			var input_button = $("<input type='button' id='loginButton' value='Login' focusable>");
+			var input_button = $(document.createElement("input"));
+				input_button.attr('type','button');
+				input_button.attr('id','loginButton');
+				input_button.attr('value','Login');
+				input_button.attr('focusable','');
 
 				
 				div_login.append(input_text);
@@ -106,6 +107,9 @@ function createPage(numPage){
 				div_flickrForm.append(div_login);
 				
 				div_body.append(div_flickrForm);
+				//ESSENTIAL!!!
+				$.caph.focus.$$toAvailable(input_button);
+				
 			break;		
 		case "europeMap":
 //			<div class="container-fluid mainContainer">
@@ -138,13 +142,19 @@ function createPage(numPage){
 				
 				//country-Buttons
 				for(var i=0; i < countries.length; i++){
+					
 				    var button_country = $(document.createElement("button"));
 						button_country.attr('class','countryButton');
-						button_country.attr('focusable','');
 						button_country.attr('id', countries[i].name);
+						button_country.attr('focusable','');
 						button_country.html(countries[i].numPhotos);
-					
+						
+						if(i==0){
+							button_country.attr('data-focusable-initial-focus','true');
+
+						}
 					div_europeMap.append(button_country);
+					$.caph.focus.$$toAvailable(button_country);
 				}
 			
 			div_body.append(div_europeMap);

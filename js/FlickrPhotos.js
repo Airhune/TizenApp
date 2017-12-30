@@ -70,7 +70,7 @@ function flickrForm(){
  function showFlickrPhotos(photos){
 	 var gallery = $("<div id=gallery class=gallery></div>");
 	 for (i = 0; i < photos.length; i++){
-		 var photo = $("<div class=photo></div>");
+		 var photo = $("<div class=photo focusable></div>");
 		 photo.append('<img class="image" id="' + photos[i].id +  '" src="'+ photos[i].url + '" />');
 		 //gallery.append('<img class="image" src="'+ photos[i].url + '" />');
 		 gallery.append(photo);
@@ -97,7 +97,7 @@ function getMyFlickrPhotosInfo(id){
 		  dataType: "xml",
 	      url : url,
 	      success : function(response) {
-	        console.log(response);
+	        //console.log(response);
 	    	$(response).find("photo").each(function(){
 	    		 var photo_id = $(this).attr("id");
 	    		 var photo_title = $(this).attr("title");
@@ -130,7 +130,7 @@ function getPhotoGeo(photos){
 			  dataType: "xml",
 		      url : url,
 		      success : function(response) {
-		    	  console.log(response);
+//		    	  console.log(response);
 
 		    	  if($(response).find("country").length == 0){
 		    		  
@@ -155,12 +155,13 @@ function getPhotoGeo(photos){
 		    		  }
 		    		  
 		    		  showFlickrPhotos(photos);
-		    		  
-		    		  //Fill the country variable with the photos location
-		    		  var country = new Object();
-						country.name = photos[0].location;
-						country.numPhotos = 1;
-						countries.push(country);
+		    		  //Fill the country variable with the photos location...
+		    		  //...Set first one as a reference
+					  var country = {
+							  name: photos[0].location,
+							  numPhotos: 1,
+							  url:[photos[0].url]
+					  }
 		    		  for(var i = 0; i < photos.length; i++){
 		    			  var countryExists = false;
 		    			  for(var u = 0; u < countries.length; u++){
@@ -172,11 +173,14 @@ function getPhotoGeo(photos){
 		    			  }
 		    			  if(countryExists){
 	    					  countries[u].numPhotos++;
+	    					  countries[u].url.push(photos[i].url);
 		    			  }else{
-		    				  var country = new Object();
-	    						country.name = photos[i].location;
-	    						country.numPhotos = 1;
-	    						countries.push(country);
+							var country = {
+									  name: photos[i].location,
+									  numPhotos: 1,
+									  url:[photos[i].url]
+							  }
+							countries.push(country);
 		    			  }
 		    		  }
 		    		  goPage("europeMap");
