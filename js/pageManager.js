@@ -10,7 +10,7 @@ function goPage(numPage){
 		case "instagram":
 			break;
 		case "flickr":
-			removePage("firstPage");
+			removePage("mainPage");
 			createPage("flickrForm");
 			break;
 		case "europeMap":
@@ -60,6 +60,52 @@ function createPage(numPage){
 //				<input type="button" id="loginButton" value="Login" focusable>
 //			</div>
 //		</div>
+			var div_body = $('.mainContainer');
+
+			var div_flickrForm = $(document.createElement("div"));
+				div_flickrForm.attr('class','container-fluid flickrForm');
+				
+			var div_header = $(document.createElement("div"));
+				div_header.attr('class','header');
+			
+			var div_span = $(document.createElement("div"));
+				div_span.html("Flick");
+			var span = $(document.createElement("span"));
+				span.html("r");
+				
+				div_span.append(span);
+				div_header.append(div_span);
+				
+			var div_login = $(document.createElement("div"));
+				div_login.attr('class','login');
+			
+//			var input_text = $(document.createElement("input"));
+//				input_text.attr('type','text');
+//				input_text.attr('id','testInput');
+//				input_text.attr('class','jQKeyboard');
+//				input_text.attr('placeholder','username');
+//				input_text.attr('name','user');
+//				input_text.attr('value','');
+//				input_text.attr('autofocus','');
+//				input_text.attr('onblur','setFocusAgain()');
+			var input_text = $("<input type='text' id='testInput' class='jQKeyboard' placeholder='username' name='user' value='' onblur='setFocusAgain()' autofocus>");
+	
+				
+//			var input_button = $(document.createElement("input"));
+//				input_button.attr('type','button');
+//				input_button.attr('id','loginButton');
+//				input_button.attr('value','Login');
+//				input_button.attr('focusable','');
+			var input_button = $("<input type='button' id='loginButton' value='Login' focusable>");
+
+				
+				div_login.append(input_text);
+				div_login.append(input_button);
+				
+				div_flickrForm.append(div_header);
+				div_flickrForm.append(div_login);
+				
+				div_body.append(div_flickrForm);
 			break;		
 		case "europeMap":
 //			<div class="container-fluid mainContainer">
