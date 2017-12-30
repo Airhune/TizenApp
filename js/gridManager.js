@@ -35,7 +35,8 @@ $(document).ready(function(){
 	    			//removePage();
 	    			//goPage("PictureDirectory");
 	    		}	    		
-	    	}	    	
+	    	}
+	    
 		});
 	    
 		controllerProvider.onBlurred(function(event, originalEvent) {

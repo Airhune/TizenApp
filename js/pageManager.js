@@ -17,6 +17,9 @@ function goPage(numPage){
 			removePage("mainPage");
 			createPage(numPage);
 			break;
+		case "countryGallery":
+			removePage();
+			createPage(numPage);
 		default:
 			console.log("Error goPage");
 		break;
@@ -169,8 +172,43 @@ function createPage(numPage){
 //			   	<button onclick= "" type="button">USB</button>
 //			  </div>
 			break;
+		case "countryGallery":
+			selectCountryPhotos();
+			break;
 		default:
 			console.log("Error goPage");
 		break;
+	}
+}
+
+function showCountryPhotos(photos){
+	var mainPage = $("<div class=mainPage></div>");
+	 $('.mainContainer').append(mainPage);
+
+	 var gallery = $("<div id=gallery class=gallery></div>");
+	 console.log(photos.length);
+	 for (i = 0; i < photos.length; i++){
+		 var photo = $("<div class=photo focusable></div>");
+		 photo.append('<img class="image"  src="'+ photos[i] + '" />');
+		 //gallery.append('<img class="image" src="'+ photos[i].url + '" />');
+		 gallery.append(photo);
+		 $('.mainPage').append(gallery);
+	 } 
+}
+
+function selectCountryPhotos(){
+	var current_className = $.caph.focus.controllerProvider.getInstance().getCurrentFocusItem().className.split(' ')[0];
+	var current_id = $.caph.focus.controllerProvider.getInstance().getCurrentFocusItem().id;
+	//if it's a countryButton
+	if(current_className === 'countryButton'){
+		//Check their name and found it in the countries variable 
+		for(var i = 0; i < countries.length; i++){
+			if(countries[i].name === current_id){
+				removePage('europeMap');
+				console.log(countries);
+				showCountryPhotos(countries[i].url);
+				break;
+			}
+		}
 	}
 }

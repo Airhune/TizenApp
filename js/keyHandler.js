@@ -1,11 +1,10 @@
 
 window.onload = function(){
-	var currentPage = 2;
+	var currentPage = 3;
 	var lastPage = 2;
 	
 	document.addEventListener("keydown", function(e) {
 		if(e.keyCode){
-			
 			//Generic Key-Cases
 			switch (e.keyCode){
 				case VK_BACK:
@@ -34,9 +33,7 @@ window.onload = function(){
 						//Initiate keyboard
 				    	activateKeypad('#testInput');
 				    	//Select inputs for the form...
-				    	
 				    	//...or try to Login
-			
 						break;
 					case VK_RIGHT:
 					case VK_UP:
@@ -52,21 +49,13 @@ window.onload = function(){
 			if(currentPage == 3){
 				switch (e.keyCode){
 				case VK_ENTER:
-					console.log(e.currentTarget);
+					goPage('countryGallery');
 					break;
 				default:
 						break;
 				}
 			}
-			
 		}
 			
 	},false);
 };
-
-
-
-function changeBackground(){
-	var image = $('.focused').attr("src");
-	$('.firstPage').css('background-image','url('+image+')');
-}

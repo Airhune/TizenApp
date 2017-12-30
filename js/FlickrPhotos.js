@@ -1,7 +1,6 @@
 function userAuthorization(oauth_token){
 	var url = 'https://www.flickr.com/services/oauth/authorize?oauth_token=' + oauth_token;
 	window.location.replace(url);
-	//console.log(url);
 }
 
 function requestToken(){
@@ -10,17 +9,9 @@ function requestToken(){
 		var oauth_token, oauth_token_secret;
 		
 	  	values = data.split('&');
-	  	
 	  	oauth_token = values['1'].split("=");
-		//console.log(oauth_token);
-		
 		oauth_token_secret = values['2'].split("=");
-		//console.log(oauth_token_secret);
-	
-		
 		userAuthorization(oauth_token['1']);
-		
-
 	});
 }
 
@@ -56,12 +47,9 @@ function flickrForm(){
 	$form.append('<input type="text" name="name" placeholder="username">');
 	$form.append('<input onclick= "getForm()" type="button" value="Accept">');
 	$(".mainPage").append($form);
-	
-	//console.log("flickr form");
 }
 
  function getForm(){
-	 //console.log($('form').serializeArray());
 	 var username = $('form').serializeArray()[0].value;
 	 $(".mainPage").empty();
 	 getMyFlickrId(username);
@@ -77,13 +65,12 @@ function flickrForm(){
 		 $('.mainPage').append(gallery);
 	 }
 	 
-	var im = document.getElementById('gallery');
-	im.addEventListener('click', function(e){
-		var photo_selected = e.target;
-		console.log(photo_selected);
-		document.getElementById("gallery").style.visibility = "hidden";
-	})
-		  
+//	var im = document.getElementById('gallery');
+//	im.addEventListener('click', function(e){
+//		var photo_selected = e.target;
+//		console.log(photo_selected);
+//		document.getElementById("gallery").style.visibility = "hidden";
+//	})	  
  }
 
 function getMyFlickrPhotosInfo(id){
@@ -97,7 +84,6 @@ function getMyFlickrPhotosInfo(id){
 		  dataType: "xml",
 	      url : url,
 	      success : function(response) {
-	        //console.log(response);
 	    	$(response).find("photo").each(function(){
 	    		 var photo_id = $(this).attr("id");
 	    		 var photo_title = $(this).attr("title");
@@ -114,9 +100,6 @@ function getMyFlickrPhotosInfo(id){
 	    	
 	      }
 	});
-	
-	
-	
 }
 
 function getPhotoGeo(photos){
@@ -130,8 +113,6 @@ function getPhotoGeo(photos){
 			  dataType: "xml",
 		      url : url,
 		      success : function(response) {
-//		    	  console.log(response);
-
 		    	  if($(response).find("country").length == 0){
 		    		  
 		    		  var photo_id = $(response).find("photo")[0].id;
@@ -153,13 +134,14 @@ function getPhotoGeo(photos){
 		    				  }
 		    			  }
 		    		  }
-		    		  
 		    		  showFlickrPhotos(photos);
+		    		  
 		    		  //Fill the country variable with the photos location...
 		    		  //...Set first one as a reference
 					  var country = {
 							  name: photos[0].location,
 							  numPhotos: 1,
+							  id: photos[0].id,
 							  url:[photos[0].url]
 					  }
 		    		  for(var i = 0; i < photos.length; i++){
@@ -178,6 +160,7 @@ function getPhotoGeo(photos){
 							var country = {
 									  name: photos[i].location,
 									  numPhotos: 1,
+									  id: photos[0].id,
 									  url:[photos[i].url]
 							  }
 							countries.push(country);
@@ -191,8 +174,6 @@ function getPhotoGeo(photos){
 		});
 			
 	}
-	
-	//console.log(aux);
 }
 
 function getMyFlickrId(username){
@@ -213,3 +194,4 @@ function getMyFlickrId(username){
 	  xmlhttp.open("GET", url, true);
 	  xmlhttp.send();
 }
+
