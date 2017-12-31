@@ -10,8 +10,7 @@ window.onload = function(){
 					break;
 				default:
 						break;
-			}
-			
+			}			
 			switch (currentPage){
 				case 1:
 					switch (e.keyCode){

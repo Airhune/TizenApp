@@ -25,7 +25,7 @@ $(document).ready(function(){
 	    	if(($(event.currentTarget).attr("id")) === 'loginButton'){
 	    		//check the value of the input
 	    		username = $('#testInput').val();
-	    		//ToDo:
+
 	    		if(username.length == 0){
 	    			//some advice?
 	    			console.log("Error message: username is empty");

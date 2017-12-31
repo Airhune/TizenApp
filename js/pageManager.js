@@ -44,6 +44,47 @@ function saveLastPage(){
 
 function createPage(numPage){
 	switch (numPage){
+		case "pictureViewer":
+			var div_body = $('.mainContainer');
+			
+			var logoHeader = $('<div class="row-lg-4"></div>');
+			var logo = $("<img class=logo src=./img/aperture.png>");
+			logoHeader.append(logo);
+
+			var div_viewer = $('<div class="container-fluid viewer"></div>');
+			div_viewer.append('<img class="viewPhoto" src="./img/m1.jpg" alt="">');
+			
+			var bar = $("<div class='bar navigate'></div>");
+			 
+			
+			var prevB = $("<button id=prev name=prev class=viewerB type=button><</button>");
+			var playB = $("<button id=play name=play class=viewerB type=button>Play</button>");
+			var nextB = $("<button id=next name=next class=viewerB type=button>></button>");
+			
+			var rotateIB = $("<button id=rotateI name=rotateI class=viewerB type=button>-90</button>");
+			var rotateDB = $("<button id=rotateD name=rotateD class=viewerB type=button>+90</button>");
+			
+			var fullscreenB = $("<button id=fullscreen name=fullscreen class=viewerB type=button>Fullscreen</button>");
+
+			var backB = $("<button id=back name=back class=viewerB type=button>Back</button>");
+			var mapB = $("<button id=map name=map class=viewerB type=button>Map</button>");
+			
+			bar.append(prevB);
+			bar.append(playB);
+			bar.append(nextB);
+			bar.append(rotateIB);
+			bar.append(rotateDB);
+			bar.append(fullscreenB);
+			bar.append(mapB);
+			bar.append(backB);
+			 
+			div_viewer.append(bar);
+			
+			div_body.append(logoHeader);
+			div_body.append(div_viewer);
+			
+			break;
+		
 		case "firstPage":
 //			<div class="container-fluid firstPage">
 //		
@@ -69,6 +110,41 @@ function createPage(numPage){
 //			  	</div>
 //			  	
 //			</div>
+			
+			
+			var div_body = $('.mainContainer');
+			
+			var div_firstPage = $('<div class="container-fluid firstPage"></div>');
+			
+			var div_logoHeader = $('<div class="row-lg-4 logoHeader"></div>');
+			div_logoHeader.append('<img class=logo src=./img/aperture.png>');
+			
+			var div_column = $('<div class=column></div>');
+			
+			var div_center_text = $('<div class="row-lg-4 text-center"></div>');
+			div_center_text.append('<p class="text">Choose your site</p>');
+			
+			var div_center_usb = $('<div class="row-lg-4 text-center"></div>');
+			div_center_usb.append('<img id="usb" class="logoImg" src="./img/usb-large.png" name="usb" focusable>')
+			
+			var div_center_flickr = $('<div class="row-lg-4 text-center"></div>');
+			div_center_flickr.append('<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickr" focusable>');
+			
+			var div_center_instagram = $('<div class="row-lg-4 text-center"></div>');
+			div_center_instagram.append('<img id="instagram" class="logoImg" src="./img/instagram-large-disabled.png" name="instagram">');
+			
+			div_column.append(div_center_text);
+			div_column.append(div_center_usb);
+			div_column.append(div_center_flickr);
+			div_column.append(div_center_instagram);
+			
+			div_firstPage.append(div_logoHeader);
+			div_firstPage.append(div_column);
+			
+			div_body.append(div_firstPage);
+			
+			
+				
 			break;
 		case "flickrForm":
 //			<div class="container-fluid flickrForm">			
@@ -161,6 +237,8 @@ function createPage(numPage){
 //			</div>
 			var div_body = $('.mainContainer');
 			
+			var div_header = $('<div class="container-fluid headerLogo"></div>');
+			
 			var div_europeMap = $(document.createElement("div"));
 				div_europeMap.attr('class','container-fluid europeMap');
 			
@@ -194,6 +272,7 @@ function createPage(numPage){
 					$.caph.focus.$$toAvailable(button_country);
 				}
 			
+			div_body.append(div_header);
 			div_body.append(div_europeMap);
 			break;
 		case "flickrGallery":

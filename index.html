@@ -41,25 +41,14 @@
 	<link rel="stylesheet" type="text/css" href="./css/formStyle.css"></link>
 	<link rel="stylesheet" type="text/css" href="./css/mapStyle.css"></link>
 	<link rel="stylesheet" type="text/css" href="./css/gallery.css">
-
+	<link rel="stylesheet" type="text/css" href="./css/viewer.css">
+	
 	<script>
-	var countries = new Array();
-	var username;
-	var currentPage = 1;
-	var lastPage;
-	var focused;
-	
-		function eventFire(el, etype){
-		  if (el.fireEvent) {
-		    el.fireEvent('on' + etype);
-		  } else {
-		    var evObj = document.createEvent('Events');
-		    evObj.initEvent(etype, true, false);
-		    el.dispatchEvent(evObj);
-		  }
-		}
-	
-	
+		var countries = new Array();
+		var username;
+		var currentPage = 1;
+		var lastPage;
+		var focused;
 	</script>
 	
 </head>
