@@ -54,6 +54,41 @@ function createPage(numPage){
 //			  	</div>
 //			  	
 //			</div>
+			
+			
+			var div_body = $('.mainContainer');
+			
+			var div_firstPage = $('<div class="container-fluid firstPage"></div>');
+			
+			var div_logoHeader = $('<div class="row-lg-4 logoHeader"></div>');
+			div_logoHeader.append('<img class=logo src=./img/aperture.png>');
+			
+			var div_column = $('<div class=column></div>');
+			
+			var div_center_text = $('<div class="row-lg-4 text-center"></div>');
+			div_center_text.append('<p class="text">Choose your site</p>');
+			
+			var div_center_usb = $('<div class="row-lg-4 text-center"></div>');
+			div_center_usb.append('<img id="usb" class="logoImg" src="./img/usb-large.png" name="usb" focusable>')
+			
+			var div_center_flickr = $('<div class="row-lg-4 text-center"></div>');
+			div_center_flickr.append('<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickr" focusable>');
+			
+			var div_center_instagram = $('<div class="row-lg-4 text-center"></div>');
+			div_center_instagram.append('<img id="instagram" class="logoImg" src="./img/instagram-large-disabled.png" name="instagram">');
+			
+			div_column.append(div_center_text);
+			div_column.append(div_center_usb);
+			div_column.append(div_center_flickr);
+			div_column.append(div_center_instagram);
+			
+			div_firstPage.append(div_logoHeader);
+			div_firstPage.append(div_column);
+			
+			div_body.append(div_firstPage);
+			
+			
+				
 			break;
 		case "flickrForm":
 //			<div class="container-fluid flickrForm">			
