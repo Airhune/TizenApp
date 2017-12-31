@@ -45,8 +45,26 @@ window.onload = function(){
 							break;
 				}
 			}
-			//EUROPE MAP
+			//FLICKR GALLERY
 			if(currentPage == 3){
+				switch (e.keyCode){
+				case VK_ENTER:
+					goPage('countryGallery');
+					break;
+				case VK_UP:
+					e.preventDefault();
+					window.scrollBy(0, -280); // Scroll 100px downwards
+					break;
+				case VK_DOWN:
+					e.preventDefault();
+					window.scrollBy(0, 280); // Scroll 100px downwards
+					break;
+				default:
+						break;
+				}
+			}
+			//EUROPE MAP
+			if(currentPage == 4){
 				switch (e.keyCode){
 				case VK_ENTER:
 					goPage('countryGallery');

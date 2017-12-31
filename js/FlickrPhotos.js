@@ -71,11 +71,14 @@ function flickrForm(){
 	 
 	 gallerydiv.append(gallery);
 	 for (i = 0; i < photos.length; i++){
+		 var photo = $("<div class='photo' focusable ></div>");
 		 var photo = $("<div class=photo focusable></div>");
+
 		 photo.append('<img class="image" id="' + photos[i].id +  '" src="'+ photos[i].url + '" />');
 		 //gallery.append('<img class="image" src="'+ photos[i].url + '" />');
 		 gallery.append(photo);
 		 gallerydiv.append(gallery);
+
 	 }
 	 
 	 var bar = $("<div id=bar class=bar></div>");
@@ -190,7 +193,7 @@ function getPhotoGeo(photos){
 							countries.push(country);
 		    			  }
 		    		  }
-		    		  goPage("europeMap");
+		    		  //goPage("europeMap");
 		    	  }
 		    	  
 		      }
