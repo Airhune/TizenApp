@@ -36,6 +36,9 @@ function removePage(pageContainerClass){
 	if($("."+pageContainerClass).length > 0){
 		$("."+pageContainerClass).empty();
 	}
+	if($(".jQKeyboardContainer").length){
+		$(".jQKeyboardContainer").remove();
+	}
 }
 
 function saveLastPage(){
