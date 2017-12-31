@@ -89,11 +89,11 @@ function flickrForm(){
 	 $('.mainPage').append(bar);
 	 
 	var im = document.getElementById('gallery');
-	im.addEventListener('click', function(e){
-		var photo_selected = e.target;
-		console.log(photo_selected);
-		document.getElementById("gallery").style.visibility = "hidden";
-	})
+//	im.addEventListener('click', function(e){
+//		var photo_selected = e.target;
+//		console.log(photo_selected);
+//		document.getElementById("gallery").style.visibility = "hidden";
+//	})
 		  
  }
 

@@ -25,6 +25,7 @@ $(document).ready(function(){
 	    	if(($(event.currentTarget).attr("id")) === 'loginButton'){
 	    		//check the value of the input
 	    		var username = $('#testInput').val();
+	    		 
 	    		//ToDo:
 	    		if(username.length == 0){
 	    			//some advice?
@@ -32,6 +33,7 @@ $(document).ready(function(){
 	    		}
 	    		else{
 	    			console.log("Go to Pictures");
+	    			getMyFlickrId(username);
 	    			//removePage();
 	    			//goPage("PictureDirectory");
 	    		}	    		

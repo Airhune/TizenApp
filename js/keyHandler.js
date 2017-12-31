@@ -1,9 +1,9 @@
 
 window.onload = function(){
-	var currentPage = 3;
+	var currentPage = 1;
 	var lastPage = 2;
 	
-	document.addEventListener("keydown", function(e) {
+	document.addEventListener("keyup", function(e) {
 		if(e.keyCode){
 			//Generic Key-Cases
 			switch (e.keyCode){
@@ -15,7 +15,7 @@ window.onload = function(){
 			}
 			//MAIN PAGE
 			if(currentPage == 1){
-				changeBackground();
+				//changeBackground();
 				switch (e.keyCode){
 					case VK_ENTER:
 						goPage($(".focused").attr("name"));
