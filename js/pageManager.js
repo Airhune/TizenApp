@@ -1,31 +1,46 @@
 
-function removePage(pageContainerClass){
-	if($("."+pageContainerClass).length > 0){
-		$("."+pageContainerClass).remove();
-	}
-}
-
 function goPage(numPage){
+	saveLastPage();
+	removePage("mainContainer");
+
 	switch (numPage){
-		case "instagram":
+		case "mainPage":
+			currentPage = 1;
 			break;
-		case "flickr":
-			removePage("mainPage");
+		case "flickrForm":
 			createPage("flickrForm");
+			currentPage = 2;
+			break;
+		case "gallery":
+			getMyFlickrId(username);
+			currentPage = 3;
+			break;
+		case "photoViewer":
+			createPage(numPage);
+			currentPage = 4;
 			break;
 		case "europeMap":
-			removePage("mainPage");
 			createPage(numPage);
+			currentPage = 5;
 			break;
 		case "countryGallery":
-			removePage();
 			createPage(numPage);
+			currentPage = 6;
 		default:
-			console.log("Error goPage");
+			console.log("Error goPage"+numPage);
 		break;
 	}
 }
 
+function removePage(pageContainerClass){
+	if($("."+pageContainerClass).length > 0){
+		$("."+pageContainerClass).empty();
+	}
+}
+
+function saveLastPage(){
+	lastPage = $('.mainContainer').first().attr('class').split(' ')[1];
+}
 
 function createPage(numPage){
 	switch (numPage){
@@ -41,7 +56,7 @@ function createPage(numPage){
 //				    	<p class="text">Choose your site</p>
 //				    </div>
 //				    <div class="row-lg-4 text-center" >
-//				    	<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickr" focusable>
+//				    	<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>
 //				    </div>
 //				    
 //				    <div class="row-lg-4 text-center" >
@@ -119,8 +134,20 @@ function createPage(numPage){
 				div_body.append(div_flickrForm);
 				//ESSENTIAL!!!
 				$.caph.focus.$$toAvailable(input_button);
-				
-			break;		
+			break;
+		case "photoViewer":
+//			<div class="mainPage">
+//			  <ul></ul>
+//			   	<button onclick= "getPhotos()" type="button">Instagram</button>
+//			   	<button onclick= "flickrForm()" type="button">Flickr</button>
+//			   	<button onclick= "" type="button">USB</button>
+//			  </div>
+			var div_body = $('.mainContainer');
+			
+			var image = $("<img class=bg src="+focused+" alt=''>")
+
+			div_body.append(image);
+			break;
 		case "europeMap":
 //			<div class="container-fluid mainContainer">
 //			<div class="container-fluid europeMap">
@@ -168,8 +195,6 @@ function createPage(numPage){
 				}
 			
 			div_body.append(div_europeMap);
-			
-			
 			break;
 		case "flickrGallery":
 //			<div class="mainPage">

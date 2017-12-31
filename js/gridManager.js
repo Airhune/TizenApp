@@ -24,16 +24,14 @@ $(document).ready(function(){
 	    	//if it's the login button
 	    	if(($(event.currentTarget).attr("id")) === 'loginButton'){
 	    		//check the value of the input
-	    		var username = $('#testInput').val();
+	    		username = $('#testInput').val();
 	    		//ToDo:
 	    		if(username.length == 0){
 	    			//some advice?
 	    			console.log("Error message: username is empty");
 	    		}
 	    		else{
-	    			console.log("Go to Pictures");
-	    			//removePage();
-	    			//goPage("PictureDirectory");
+	    			goPage("gallery");
 	    		}	    		
 	    	}
 	    

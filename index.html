@@ -44,18 +44,54 @@
 
 	<script>
 	var countries = new Array();
+	var username;
+	var currentPage = 1;
+	var lastPage;
+	var focused;
+	
+		function eventFire(el, etype){
+		  if (el.fireEvent) {
+		    el.fireEvent('on' + etype);
+		  } else {
+		    var evObj = document.createEvent('Events');
+		    evObj.initEvent(etype, true, false);
+		    el.dispatchEvent(evObj);
+		  }
+		}
+	
+	
 	</script>
 	
 </head>
-<body>
+<body >
 
-	<div class="container-fluid mainContainer">
+	<div class="container-fluid mainContainer" >
 	
-		<div class="mainPage">
-			<button onclick="flickrForm()" type="button">Flickr</button>
-		</div>
+					<div class="container-fluid firstPage">
+		
+				<div class="row-lg-4 logoHeader"> 
+					<img class="logo" src="./img/aperture.png">
+				</div>
+				
+		 		<div class="column">
+	 			<div class="row-lg-4 text-center" >
+				    	<p class="text">Choose your site</p>
+				    </div>
+				    <div class="row-lg-4 text-center" >
+				    	<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>
+				    </div>
+				    
+				    <div class="row-lg-4 text-center" >
+				    	<img id="instagram" class="logoImg" src="./img/usb-large.png" name="instagram" focusable>
+				    </div>
+				    
+				    <div class="row-lg-4 text-center" >
+				    	<img id="pinterest" class="logoImg" src="./img/instagram-large.png" name="pinterest" focusable>
+				    </div> 
+			  	</div>
+			  	
+			</div>
 		
 	</div>
-	
 </body>
 </html>
