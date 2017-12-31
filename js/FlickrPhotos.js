@@ -67,7 +67,7 @@ function flickrForm(){
  
  function showFlickrPhotos(photos){
 	 
-	 var logoHeader = $("<div class=row-lg-4 logoHeader></div>");
+	 var logoHeader = $('<div class="row-lg-4"></div>');
 	 var logo = $("<img class=logo src=./img/aperture.png>");
 	 
 	 logoHeader.append(logo);
@@ -80,7 +80,7 @@ function flickrForm(){
 	 
 	 gallerydiv.append(gallery);
 	 for (i = 0; i < photos.length; i++){
-		 var photo = $("<div class=photo></div>");
+		 var photo = $("<div class=photo focusable></div>");
 		 photo.append('<img class="image" id="' + photos[i].id +  '" src="'+ photos[i].url + '" />');
 		 //gallery.append('<img class="image" src="'+ photos[i].url + '" />');
 		 gallery.append(photo);

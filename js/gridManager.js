@@ -14,7 +14,7 @@ $(document).ready(function(){
 	    		$('.countryPanel').text($(event.currentTarget).attr('id'));
 	    	}
 	    	
-	        });
+	    });
 	    
 	    controllerProvider.onSelected(function(event, originalEvent) {
 	    	//if it's a virtual keyboard button

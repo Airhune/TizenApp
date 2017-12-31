@@ -1,6 +1,6 @@
 
 window.onload = function(){
-	var currentPage = 2;
+	var currentPage = 1;
 	var lastPage = 2;
 	
 	document.addEventListener("keydown", function(e) {
