@@ -54,6 +54,9 @@ window.onload = function(){
 								goPage('photoViewer');
 							}
 							break;
+						case VK_GREEN:
+							goPage('europeMap');
+							break;
 						case VK_UP:
 							e.preventDefault();
 							window.scrollBy(0, -280);
