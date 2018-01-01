@@ -40,36 +40,36 @@ function authToken(handleData){
 }
 
 function flickrForm(){
-	$(".mainPage").empty();
+	$(".flickrGallery").empty();
 	
 	$form = $("<form></form>");
 	
 	$form.append('<p>Username</p>');
 	$form.append('<input type="text" name="name" placeholder="username">');
 	$form.append('<input onclick= "getForm()" type="button" value="Accept">');
-	$(".mainPage").append($form);
+	$(".flickrGallery").append($form);
 }
 
  function getForm(){
 	 var username = $('form').serializeArray()[0].value;
-	 $(".mainPage").empty();
+	 $(".flickrGallery").empty();
 	 getMyFlickrId(username);
  }
  
  function showFlickrPhotos(photos){
 	 var mainContainer = $('.mainContainer');
-	 var mainPage = $("<div class='container-fluid mainPage'></div>");
-	 	mainContainer.append(mainPage);
+	 var flickrGallery = $("<div class='container-fluid flickrGallery'></div>");
+	 	mainContainer.append(flickrGallery);
 	 var logoHeader = $('<div class="row-lg-4"></div>');
 	 var logo = $("<img class=logo src=./img/aperture.png>");
 	 
 	 logoHeader.append(logo);
-	 $('.mainPage').append(logoHeader);
+	 $('.flickrGallery').append(logoHeader);
 	 
 	 var gallerydiv = $("<div class=gallerydiv></div>");
 	 var gallery = $("<div id=gallery class=gallery></div>");
 	 
-	 $('.mainPage').append(gallerydiv);
+	 $('.flickrGallery').append(gallerydiv);
 	 
 	 gallerydiv.append(gallery);
 	 for (i = 0; i < photos.length; i++){
@@ -91,7 +91,7 @@ function flickrForm(){
 	 bar.append(backB);
 	 bar.append(mapB);
 	 
-	 $('.mainPage').append(bar);
+	 $('.flickrGallery').append(bar);
 	 
 	var im = document.getElementById('gallery');
 //	im.addEventListener('click', function(e){

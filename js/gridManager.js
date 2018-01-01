@@ -31,7 +31,7 @@ $(document).ready(function(){
 	    			console.log("Error message: username is empty");
 	    		}
 	    		else{
-	    			goPage("gallery");
+	    			goPage("flickrGallery");
 	    		}	    		
 	    	}
 	    

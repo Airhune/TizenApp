@@ -1,17 +1,17 @@
 
 function goPage(numPage){
-	saveLastPage();
 	removePage("mainContainer");
 
 	switch (numPage){
-		case "mainPage":
+		case "firstPage":
+			createPage(numPage);
 			currentPage = 1;
 			break;
 		case "flickrForm":
 			createPage("flickrForm");
 			currentPage = 2;
 			break;
-		case "gallery":
+		case "flickrGallery":
 			getMyFlickrId(username);
 			currentPage = 3;
 			break;
@@ -41,8 +41,29 @@ function removePage(pageContainerClass){
 	}
 }
 
-function saveLastPage(){
-	lastPage = $('.mainContainer').first().attr('class').split(' ')[1];
+function nameOfPage(number){
+	var name;
+	switch(number){
+		case 1:
+			name = 'firstPage';
+			break;
+		case 2:
+			name = 'flickrForm';
+			break;
+		case 3:
+			name = 'flickrGallery';
+			break;
+		case 4:
+			name = 'photoViewer';
+			break;
+		case 5:
+			name = 'europeMap';
+			break;
+		case 6:
+			name = 'countryGallery';
+			break;
+	}
+	return name;
 }
 
 function createPage(numPage){
@@ -113,8 +134,6 @@ function createPage(numPage){
 //			  	</div>
 //			  	
 //			</div>
-			
-			
 			var div_body = $('.mainContainer');
 			
 			var div_firstPage = $('<div class="container-fluid firstPage"></div>');
@@ -145,9 +164,6 @@ function createPage(numPage){
 			div_firstPage.append(div_column);
 			
 			div_body.append(div_firstPage);
-			
-			
-				
 			break;
 		case "flickrForm":
 //			<div class="container-fluid flickrForm">			

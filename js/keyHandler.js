@@ -4,11 +4,13 @@ window.onload = function(){
 	document.addEventListener("keydown", function(e) {
 		if(e.keyCode){
 			
-			
 			//Generic Key-Cases
 			switch (e.keyCode){
-				case VK_BACK:
-						goPage(lastPage);
+				//GO BACK
+				case VK_BACK: //ToDo: find which keyboard key is back :)
+						if(currentPage != 1){
+							goPage(nameOfPage(currentPage-1));
+						}
 					break;
 				default:
 						break;
@@ -16,6 +18,7 @@ window.onload = function(){
 			
 			
 			switch (currentPage){
+				//MAIN PAGE
 				case 1:
 					switch (e.keyCode){
 						case VK_ENTER:
@@ -25,13 +28,12 @@ window.onload = function(){
 								break;
 						}
 					break;
+				//FLICKR FORM
 				case 2:
 					switch (e.keyCode){
 						case VK_ENTER:
 							//Initiate keyboard
 					    	activateKeypad('#testInput');
-					    	//Select inputs for the form...
-					    	//...or try to Login
 							break;
 						case VK_RIGHT:
 						case VK_UP:
@@ -43,6 +45,7 @@ window.onload = function(){
 							break;
 					 }
 					break;
+				//FLICKR GALLERY
 				case 3:
 					switch (e.keyCode){
 						case VK_ENTER:
@@ -63,6 +66,7 @@ window.onload = function(){
 								break;
 					}
 					break;
+				//PHOTO VIEWER
 				case 4:
 					switch (e.keyCode){
 						case VK_ENTER:
@@ -71,6 +75,7 @@ window.onload = function(){
 								break;
 					}
 					break;
+				//EUROPE MAP
 				case 5:
 					switch (e.keyCode){
 						case VK_ENTER:
@@ -80,6 +85,7 @@ window.onload = function(){
 								break;
 					}
 					break;
+				//COUNTRY GALLERY
 				case 6:
 					switch (e.keyCode){
 						case VK_ENTER:
@@ -91,82 +97,6 @@ window.onload = function(){
 				default:
 						break;
 			}
-//			//MAIN PAGE
-//			if(currentPage == 1){
-//				switch (e.keyCode){
-//					case VK_ENTER:
-//						goPage($(".focused").attr("name"));
-//						break;
-//					default:
-//							break;
-//					}
-//			}
-//			//FLICKR FORM
-//			if(currentPage == 2){
-//				switch (e.keyCode){
-//					case VK_ENTER:
-//						//Initiate keyboard
-//				    	activateKeypad('#testInput');
-//				    	//Select inputs for the form...
-//				    	//...or try to Login
-//						break;
-//					case VK_RIGHT:
-//					case VK_UP:
-//					case VK_DOWN:
-//					case VK_LEFT:
-//						e.preventDefault();
-//						break;
-//					default:
-//							break;
-//				}
-//			}
-//			//FLICKR GALLERY
-//			if(currentPage == 3){
-//				switch (e.keyCode){
-//				case VK_ENTER:
-//					focused = $('.focused > .image').first().attr('src');
-//					goPage('photoViewer');
-//					break;
-//				case VK_UP:
-//					e.preventDefault();
-//					window.scrollBy(0, -280);
-//					break;
-//				case VK_DOWN:
-//					e.preventDefault();
-//					window.scrollBy(0, 280);
-//					break;
-//				default:
-//						break;
-//				}
-//			}
-//			//PHOTO VIEWER
-//			if(currentPage == 4){
-//				switch (e.keyCode){
-//				case VK_ENTER:
-//					break;
-//				default:
-//						break;
-//				}
-//			}
-//			//EUROPE MAP
-//			if(currentPage == 5){
-//				switch (e.keyCode){
-//				case VK_ENTER:
-//					goPage('countryGallery');
-//					break;
-//				default:
-//						break;
-//				}
-//			}
-//			//COUNTRY GALLERY
-//			if(currentPage == 6){
-//				switch (e.keyCode){
-//				case VK_ENTER:
-//					break;
-//				default:
-//						break;
-//				}
-//			}
 		}
 			
 	},false);
