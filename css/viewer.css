@@ -6,23 +6,15 @@
 }
 
 .viewPhoto{
-	width: 70%;
+	width: 58%;
     margin-top: 1%;
     margin-bottom: 1%;	
     transform: rotate(360deg);
 }
 
 .viewerB{
-	height: 70px;
-	color: white;
-    font-size: 40px;
-    
-    border-radius: 30px;
-    background-color: #087a5b;
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
+	height: 100px;
+    margin-right: 30px;
 }
 
 .navigate{
@@ -30,15 +22,19 @@
 }
 
 #next{
-	margin-right: 100px;
+	margin-right: 160px;
 }
 
-#rotateD{
-	margin-right: 100px;
+#prev{
+	margin-left: 170px;
+}
+
+#rotateI{
+	margin-right: 160px;
 }
 
 #fullscreen{
-	margin-right: 100px;
+	margin-right: 160px;
 }
 
 #map{

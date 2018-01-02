@@ -1,6 +1,3 @@
-var degrees = 0;
-
-
 window.onload = function(){
 	
 	document.addEventListener("keydown", function(e) {
@@ -80,76 +77,26 @@ window.onload = function(){
 					switch (e.keyCode){
 						case VK_ENTER:
 							break;
-						case VK_UP:
-<<<<<<< HEAD
-//							var angle;
-//							if($('.viewPhoto').css('transform') == 'none'){
-//								angle = 0;
-//							} else{
-//								var matrix = $('.viewPhoto').css('transform');
-//								console.log(matrix);
-//								var values = matrix.split('(')[1].split(')')[0].split(',');
-//								var a = values[0];
-//								var b = values[0];
-//								
-//								var scale = Math.sqrt(a*a + b*b);
-//								
-//								var sin = b/scale;
-//								
-//								angle = Math.round(Math.atan2(b,a) * (180/Math.PI));
-//							}
-//							console.log(angle);
-//							
-//							angle += 90;
-//							
-//							 $('.viewPhoto').css('transform','rotate('+angle+'deg)');
-							
-							 degrees += 90;
-							
-							$('.viewPhoto').css({
-						        '-webkit-transform': 'rotate('+ degrees +'deg)',
-						        '-moz-transform': 'rotate('+ degrees +'deg)',
-						        'transform': 'rotate('+ degrees +'deg)'
-						    });
-							
-							
-							break;
-=======
-							var el = document.getElementById("mainPhoto");
-							var st = window.getComputedStyle(el, null);
-							var tr = st.getPropertyValue("-webkit-transform") ||
-							         st.getPropertyValue("-moz-transform") ||
-							         st.getPropertyValue("-ms-transform") ||
-							         st.getPropertyValue("-o-transform") ||
-							         st.getPropertyValue("transform") ||
-							         "FAIL";
-							var values = tr.split('(')[1].split(')')[0].split(',');
-							var a = values[0];
-							var b = values[1];
-							
-							var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
-
+						case VK_YELLOW:
+							var angle = rotate();
 							angle+= 90;
 							 $('.viewPhoto').css('transform','rotate('+angle+'deg)');
 							 break;
->>>>>>> ee25435375a3b787ae5ba50dab61bf792e20b674
-						case VK_DOWN:
-							degrees -= 90;
-							$('.viewPhoto').css({
-						        '-webkit-transform': 'rotate('+ degrees +'deg)',
-						        '-moz-transform': 'rotate('+ degrees +'deg)',
-						        'transform': 'rotate('+ degrees +'deg)'
-						    });
+
+						case VK_BLUE:
+							var angle = rotate();
+							angle-= 90;
+							 $('.viewPhoto').css('transform','rotate('+angle+'deg)');
 							break;
+							
 						case VK_GREEN:
 							goPage('europeMap');
 							break;
-						case VK_BLUE:
-							$('.row-lg-4').empty();
-							setTimeout(function() {
-								  $('#navigate').fadeOut('fast');
-								}, 30000)
+							
+						case VK_RED:
+							goPage('fullscreen');
 							break;
+							
 						default:
 								break;
 					}
@@ -159,6 +106,22 @@ window.onload = function(){
 					switch (e.keyCode){
 						case VK_ENTER:
 							goPage('countryGallery');
+							break;
+						default:
+								break;
+					}
+					break;
+					
+				case 7:
+					switch (e.keyCode){
+						case VK_ENTER:
+							break;
+						case VK_RED:
+							if(currentPage != 1 ){
+								userPath.pop();
+								goPage(nameOfPage(userPath[userPath.length-1]));
+								userPath.pop();
+							}
 							break;
 						default:
 								break;
