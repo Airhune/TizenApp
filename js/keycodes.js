@@ -1,10 +1,10 @@
 ﻿// follow OIPF
 // each keycode on Every Application and Every platform should have only one numeric numer
 if (typeof(VK_LEFT) == 'undefined') {
-	var VK_LEFT = 0x25;
-	var VK_UP = 0x26;
-	var VK_RIGHT = 0x27;
-	var VK_DOWN = 0x28;
+	var VK_LEFT = 37; //0x25;
+	var VK_UP = 38; //0x26;
+	var VK_RIGHT = 39; //0x27;
+	var VK_DOWN = 40; //0x28;
 }
 if (typeof(VK_ENTER)=='undefined') {
 	var VK_ENTER = 0x0d;

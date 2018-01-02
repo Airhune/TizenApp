@@ -1,3 +1,5 @@
+var degrees = 0;
+
 
 window.onload = function(){
 	
@@ -77,6 +79,53 @@ window.onload = function(){
 				case 4:
 					switch (e.keyCode){
 						case VK_ENTER:
+							break;
+						case VK_UP:
+							var angle;
+							if($('.viewPhoto').css('transform') == 'none'){
+								angle = 0;
+							} else{
+								var matrix = $('.viewPhoto').css('transform');
+								console.log(matrix);
+								var values = matrix.split('(')[1].split(')')[0].split(',');
+								var a = values[0];
+								var b = values[0];
+								
+								var scale = Math.sqrt(a*a + b*b);
+								
+								var sin = b/scale;
+								
+								angle = Math.round(Math.atan2(b,a) * (180/Math.PI));
+							}
+							console.log(angle);
+							
+							angle += 90;
+							
+							 $('.viewPhoto').css('transform','rotate('+angle+'deg)');
+							
+							 //degrees += 90;
+							
+//							$('.viewPhoto').css({
+//						        '-webkit-transform': 'rotate('+ degrees +'deg)',
+//						        '-moz-transform': 'rotate('+ degrees +'deg)',
+//						        'transform': 'rotate('+ degrees +'deg)'
+//						    });
+							
+							
+							break;
+						case VK_DOWN:
+							degrees -= 90;
+							$('.viewPhoto').css({
+						        '-webkit-transform': 'rotate('+ degrees +'deg)',
+						        '-moz-transform': 'rotate('+ degrees +'deg)',
+						        'transform': 'rotate('+ degrees +'deg)'
+						    });
+							break;
+						case VK_GREEN:
+							goPage('europeMap');
+							break;
+						case VK_BLUE:
+							
 							break;
 						default:
 								break;

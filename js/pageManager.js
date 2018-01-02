@@ -125,6 +125,7 @@ function createPage(numPage){
 			
 			div_body.append(div_firstPage);
 			break;
+			
 		case "flickrForm":
 			var div_body = $('.mainContainer');
 			
@@ -174,9 +175,11 @@ function createPage(numPage){
 				//ESSENTIAL!!!
 				$.caph.focus.$$toAvailable(input_button);
 			break;
+			
 		case "flickrGallery":
 			getMyFlickrId(username);
 		break;
+		
 		case "photoViewer":
 			var div_body = $('.mainContainer');
 			
