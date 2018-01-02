@@ -3,7 +3,7 @@ window.onload = function(){
 	
 	document.addEventListener("keydown", function(e) {
 		if(e.keyCode){
-			
+
 			//Generic Key-Cases
 			switch (e.keyCode){
 				//GO BACK

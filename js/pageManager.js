@@ -1,35 +1,8 @@
 
 function goPage(numPage){
 	removePage("mainContainer");
-
-	switch (numPage){
-		case "firstPage":
-			createPage(numPage);
-			currentPage = 1;
-			break;
-		case "flickrForm":
-			createPage("flickrForm");
-			currentPage = 2;
-			break;
-		case "flickrGallery":
-			getMyFlickrId(username);
-			currentPage = 3;
-			break;
-		case "photoViewer":
-			createPage(numPage);
-			currentPage = 4;
-			break;
-		case "europeMap":
-			createPage(numPage);
-			currentPage = 5;
-			break;
-		case "countryGallery":
-			createPage(numPage);
-			currentPage = 6;
-		default:
-			console.log("Error goPage"+numPage);
-		break;
-	}
+	createPage(numPage);
+	setCurrentPage(numPage);
 }
 
 function removePage(pageContainerClass){
@@ -66,74 +39,58 @@ function nameOfPage(number){
 	return name;
 }
 
+function setCurrentPage(numPage){
+	switch (numPage){
+		case "firstPage":
+			currentPage = 1;
+			break;
+		case "flickrForm":
+			currentPage = 2;
+			break;
+		case "flickrGallery":
+			currentPage = 3;
+			break;
+		case "photoViewer":
+			currentPage = 4;
+			break;
+		case "europeMap":
+			currentPage = 5;
+			break;
+		case "countryGallery":
+			currentPage = 6;
+		default:
+			console.log("Error goPage"+numPage);
+		break;
+	}
+}
+
 function createPage(numPage){
 	switch (numPage){
-		case "pictureViewer":
-			var div_body = $('.mainContainer');
-			
-			var logoHeader = $('<div class="row-lg-4"></div>');
-			var logo = $("<img class=logo src=./img/aperture.png>");
-			logoHeader.append(logo);
-
-			var div_viewer = $('<div class="container-fluid viewer"></div>');
-			div_viewer.append('<img class="viewPhoto" src="./img/m1.jpg" alt="">');
-			
-			var bar = $("<div class='bar navigate'></div>");
-			 
-			
-			var prevB = $("<button id=prev name=prev class=viewerB type=button><</button>");
-			var playB = $("<button id=play name=play class=viewerB type=button>Play</button>");
-			var nextB = $("<button id=next name=next class=viewerB type=button>></button>");
-			
-			var rotateIB = $("<button id=rotateI name=rotateI class=viewerB type=button>-90</button>");
-			var rotateDB = $("<button id=rotateD name=rotateD class=viewerB type=button>+90</button>");
-			
-			var fullscreenB = $("<button id=fullscreen name=fullscreen class=viewerB type=button>Fullscreen</button>");
-
-			var backB = $("<button id=back name=back class=viewerB type=button>Back</button>");
-			var mapB = $("<button id=map name=map class=viewerB type=button>Map</button>");
-			
-			bar.append(prevB);
-			bar.append(playB);
-			bar.append(nextB);
-			bar.append(rotateIB);
-			bar.append(rotateDB);
-			bar.append(fullscreenB);
-			bar.append(mapB);
-			bar.append(backB);
-			 
-			div_viewer.append(bar);
-			
-			div_body.append(logoHeader);
-			div_body.append(div_viewer);
-			
-			break;
-		
 		case "firstPage":
-//			<div class="container-fluid firstPage">
-//		
-//				<div class="row-lg-4 logoHeader"> 
-//					<img class="logo" src="./img/aperture.png">
-//				</div>
-//				
-//		 		<div class="column">
-//		 			<div class="row-lg-4 text-center" >
-//				    	<p class="text">Choose your site</p>
-//				    </div>
-//				    <div class="row-lg-4 text-center" >
-//				    	<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>
-//				    </div>
-//				    
-//				    <div class="row-lg-4 text-center" >
-//				    	<img id="instagram" class="logoImg" src="./img/usb-large.png" name="instagram" focusable>
-//				    </div>
-//				    
-//				    <div class="row-lg-4 text-center" >
-//				    	<img id="pinterest" class="logoImg" src="./img/instagram-large.png" name="pinterest" focusable>
-//				    </div> 
-//			  	</div>
-//			  	
-//			</div>
+	//		<div class="container-fluid firstPage">
+	//	
+	//			<div class="row-lg-4 logoHeader"> 
+	//				<img class="logo" src="./img/aperture.png">
+	//			</div>
+	//			
+	//	 		<div class="column">
+	//	 			<div class="row-lg-4 text-center" >
+	//			    	<p class="text">Choose your site</p>
+	//			    </div>
+	//			    <div class="row-lg-4 text-center" >
+	//			    	<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>
+	//			    </div>
+	//			    
+	//			    <div class="row-lg-4 text-center" >
+	//			    	<img id="instagram" class="logoImg" src="./img/usb-large.png" name="instagram" focusable>
+	//			    </div>
+	//			    
+	//			    <div class="row-lg-4 text-center" >
+	//			    	<img id="pinterest" class="logoImg" src="./img/instagram-large.png" name="pinterest" focusable>
+	//			    </div> 
+	//		  	</div>
+	//		  	
+	//		</div>
 			var div_body = $('.mainContainer');
 			
 			var div_firstPage = $('<div class="container-fluid firstPage"></div>');
@@ -166,22 +123,6 @@ function createPage(numPage){
 			div_body.append(div_firstPage);
 			break;
 		case "flickrForm":
-//			<div class="container-fluid flickrForm">			
-//			<!-- <div class="body"></div>
-//			<div class="grad"></div> -->
-//			<div class="header">
-//				<div>
-//				Flick
-//				<span>r</span>
-//				</div>
-//			</div>
-//			<br>
-//			<div class="login">
-//				<input type="text" id="testInput" class="jQKeyboard" placeholder="username" name="user" value="" onblur="setFocusAgain()" autofocus><br>
-//				<input type="button" id="loginButton" value="Login" focusable>
-//			</div>
-//		</div>
-
 			var div_body = $('.mainContainer');
 			
 			var div_flickrForm = $(document.createElement("div"));
@@ -218,7 +159,7 @@ function createPage(numPage){
 				input_button.attr('id','loginButton');
 				input_button.attr('value','Login');
 				input_button.attr('focusable','');
-
+	
 				
 				div_login.append(input_text);
 				div_login.append(input_button);
@@ -230,30 +171,50 @@ function createPage(numPage){
 				//ESSENTIAL!!!
 				$.caph.focus.$$toAvailable(input_button);
 			break;
+	case "flickrGallery":
+		getMyFlickrId(username);
+		break;
 		case "photoViewer":
-//			<div class="mainPage">
-//			  <ul></ul>
-//			   	<button onclick= "getPhotos()" type="button">Instagram</button>
-//			   	<button onclick= "flickrForm()" type="button">Flickr</button>
-//			   	<button onclick= "" type="button">USB</button>
-//			  </div>
 			var div_body = $('.mainContainer');
 			
-			var image = $("<img class=bg src="+focused+" alt=''>")
+			var logoHeader = $('<div class="row-lg-4"></div>');
+			var logo = $("<img class=logo src=./img/aperture.png>");
+			logoHeader.append(logo);
 
-			div_body.append(image);
+			var div_viewer = $('<div class="container-fluid photoViewer"></div>');
+			div_viewer.append('<img class="viewPhoto" src='+focused+' alt="">');
+			
+			var bar = $("<div class='bar navigate'></div>");
+			 
+			
+			var prevB = $("<button id=prev name=prev class=viewerB type=button><</button>");
+			var playB = $("<button id=play name=play class=viewerB type=button>Play</button>");
+			var nextB = $("<button id=next name=next class=viewerB type=button>></button>");
+			
+			var rotateIB = $("<button id=rotateI name=rotateI class=viewerB type=button>-90</button>");
+			var rotateDB = $("<button id=rotateD name=rotateD class=viewerB type=button>+90</button>");
+			
+			var fullscreenB = $("<button id=fullscreen name=fullscreen class=viewerB type=button>Fullscreen</button>");
+
+			var backB = $("<button id=back name=back class=viewerB type=button>Back</button>");
+			var mapB = $("<button id=map name=map class=viewerB type=button>Map</button>");
+			
+			bar.append(prevB);
+			bar.append(playB);
+			bar.append(nextB);
+			bar.append(rotateIB);
+			bar.append(rotateDB);
+			bar.append(fullscreenB);
+			bar.append(mapB);
+			bar.append(backB);
+			 
+			div_viewer.append(bar);
+			
+			div_body.append(logoHeader);
+			div_body.append(div_viewer);
+			
 			break;
 		case "europeMap":
-//			<div class="container-fluid mainContainer">
-//			<div class="container-fluid europeMap">
-//				<img class="bg" src="./img/m1.jpg" alt="">
-//				<div>
-//					<p class="countryPanel">SPAIN</p>
-//				</div>
-//				<button class="countryButton" id="spain" focusable data-focusable-initial-focus="true">4</button>
-//				<button class="countryButton" id="portugal" focusable>2</button>
-//				
-//			</div>
 			var div_body = $('.mainContainer');
 			
 			var div_header = $('<div class="container-fluid headerLogo"></div>');
@@ -294,14 +255,6 @@ function createPage(numPage){
 			div_body.append(div_header);
 			div_body.append(div_europeMap);
 			break;
-		case "flickrGallery":
-//			<div class="mainPage">
-//			  <ul></ul>
-//			   	<button onclick= "getPhotos()" type="button">Instagram</button>
-//			   	<button onclick= "flickrForm()" type="button">Flickr</button>
-//			   	<button onclick= "" type="button">USB</button>
-//			  </div>
-			break;
 		case "countryGallery":
 			selectCountryPhotos();
 			break;
@@ -311,34 +264,3 @@ function createPage(numPage){
 	}
 }
 
-function showCountryPhotos(photos){
-	var mainPage = $("<div class=mainPage></div>");
-	 $('.mainContainer').append(mainPage);
-
-	 var gallery = $("<div id=gallery class=gallery></div>");
-	 console.log(photos.length);
-	 for (i = 0; i < photos.length; i++){
-		 var photo = $("<div class=photo focusable></div>");
-		 photo.append('<img class="image"  src="'+ photos[i] + '" />');
-		 //gallery.append('<img class="image" src="'+ photos[i].url + '" />');
-		 gallery.append(photo);
-		 $('.mainPage').append(gallery);
-	 } 
-}
-
-function selectCountryPhotos(){
-	var current_className = $.caph.focus.controllerProvider.getInstance().getCurrentFocusItem().className.split(' ')[0];
-	var current_id = $.caph.focus.controllerProvider.getInstance().getCurrentFocusItem().id;
-	//if it's a countryButton
-	if(current_className === 'countryButton'){
-		//Check their name and found it in the countries variable 
-		for(var i = 0; i < countries.length; i++){
-			if(countries[i].name === current_id){
-				removePage('europeMap');
-				console.log(countries);
-				showCountryPhotos(countries[i].url);
-				break;
-			}
-		}
-	}
-}
