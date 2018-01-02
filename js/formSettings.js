@@ -7,6 +7,22 @@ function dontLoseFocus(){
 	$.caph.focus.controllerProvider.getInstance().focus($('#loginButton'));
 }
 
+function usernameIsValid(){
+	if($('.focused').first().attr('id') === 'loginButton'){
+		username = $('#testInput').val();	
+		if(username.length != 0){
+			return true;
+		}
+		else{
+			//ToDo: some advice?
+			console.log("Error message: username is empty");
+			return false;
+		}	    	
+	}else{
+		return false;
+	}
+}
+
 $(function(){
     var keyboard = {
         'layout': [

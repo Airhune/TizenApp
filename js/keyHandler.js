@@ -7,10 +7,12 @@ window.onload = function(){
 			//Generic Key-Cases
 			switch (e.keyCode){
 				//GO BACK
-				case VK_BACK: //ToDo: find which keyboard key is back :)
-						if(currentPage != 1){
-							goPage(nameOfPage(currentPage-1));
-						}
+				case VK_BACK:
+					if(currentPage != 1 ){
+						userPath.pop();
+						goPage(nameOfPage(userPath[userPath.length-1]));
+						userPath.pop();
+					}
 					break;
 				default:
 						break;
@@ -26,7 +28,7 @@ window.onload = function(){
 							break;
 						default:
 								break;
-						}
+					}
 					break;
 				//FLICKR FORM
 				case 2:
@@ -34,6 +36,8 @@ window.onload = function(){
 						case VK_ENTER:
 							//Initiate keyboard
 					    	activateKeypad('#testInput');
+					    	//goes to flickrGallery according to username
+					    	if(usernameIsValid()){goPage("flickrGallery");}
 							break;
 						case VK_RIGHT:
 						case VK_UP:
@@ -47,12 +51,12 @@ window.onload = function(){
 					break;
 				//FLICKR GALLERY
 				case 3:
+				//COUNTRY GALLERY
+				case 6:
 					switch (e.keyCode){
 						case VK_ENTER:
 							focused = $('.focused > .image').first().attr('src');
-							if(focused.length > 0){
-								goPage('photoViewer');
-							}
+							if(focused.length > 0){goPage('photoViewer');}
 							break;
 						case VK_GREEN:
 							goPage('europeMap');
@@ -88,17 +92,6 @@ window.onload = function(){
 								break;
 					}
 					break;
-				//COUNTRY GALLERY
-				case 6:
-					switch (e.keyCode){
-						case VK_ENTER:
-							break;
-						default:
-								break;
-					}
-					break;
-				default:
-						break;
 			}
 		}
 			

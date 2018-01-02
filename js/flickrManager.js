@@ -70,18 +70,40 @@
  }
 
  function showCountryPhotos(photos){
-		var mainPage = $("<div class=mainPage></div>");
-	 $('.mainContainer').append(mainPage);
-
+	 var mainContainer = $('.mainContainer');
+	 var flickrGallery = $("<div class='container-fluid flickrGallery'></div>");
+	 	mainContainer.append(flickrGallery);
+	 var logoHeader = $('<div class="row-lg-4"></div>');
+	 var logo = $("<img class=logo src=./img/aperture.png>");
+	 
+	 logoHeader.append(logo);
+	 $('.flickrGallery').append(logoHeader);
+	 
+	 var gallerydiv = $("<div class=gallerydiv></div>");
 	 var gallery = $("<div id=gallery class=gallery></div>");
-	 console.log(photos.length);
+	 
+	 $('.flickrGallery').append(gallerydiv);
+	 
+	 gallerydiv.append(gallery);
 	 for (i = 0; i < photos.length; i++){
+		 var photo = $("<div class='photo' focusable ></div>");
 		 var photo = $("<div class=photo focusable></div>");
-		 photo.append('<img class="image"  src="'+ photos[i] + '" />');
-		 //gallery.append('<img class="image" src="'+ photos[i].url + '" />');
+
+		 photo.append('<img class="image" src="'+ photos[i] + '" />');
 		 gallery.append(photo);
-		 $('.mainPage').append(gallery);
-	 } 
+		 gallerydiv.append(gallery);
+
+	 }
+	 
+	 var bar = $("<div id=bar class=bar></div>");
+		 
+	 var backB = $("<button class=galleryB type=button>Back</button>");
+	 var mapB = $("<button class=galleryB type=button>Map</button>");
+	 
+	 bar.append(backB);
+	 bar.append(mapB);
+	 
+	 $('.flickrGallery').append(bar);
 }
 
 function selectCountryPhotos(){
@@ -93,7 +115,7 @@ function selectCountryPhotos(){
 		for(var i = 0; i < countries.length; i++){
 			if(countries[i].name === current_id){
 				removePage('europeMap');
-				console.log(countries);
+				countryPhotos = countries[i].url;
 				showCountryPhotos(countries[i].url);
 				break;
 			}

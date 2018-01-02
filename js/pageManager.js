@@ -36,6 +36,7 @@ function nameOfPage(number){
 			name = 'countryGallery';
 			break;
 	}
+	console.log(name);
 	return name;
 }
 
@@ -58,10 +59,12 @@ function setCurrentPage(numPage){
 			break;
 		case "countryGallery":
 			currentPage = 6;
+			break;
 		default:
 			console.log("Error goPage"+numPage);
 		break;
 	}
+	userPath.push(currentPage);
 }
 
 function createPage(numPage){
@@ -171,8 +174,8 @@ function createPage(numPage){
 				//ESSENTIAL!!!
 				$.caph.focus.$$toAvailable(input_button);
 			break;
-	case "flickrGallery":
-		getMyFlickrId(username);
+		case "flickrGallery":
+			getMyFlickrId(username);
 		break;
 		case "photoViewer":
 			var div_body = $('.mainContainer');
@@ -256,7 +259,12 @@ function createPage(numPage){
 			div_body.append(div_europeMap);
 			break;
 		case "countryGallery":
-			selectCountryPhotos();
+			if(userPath[userPath.length - 1] == 6){
+				showCountryPhotos(countryPhotos);
+			}else{
+				selectCountryPhotos();	
+			}
+			
 			break;
 		default:
 			console.log("Error goPage");
