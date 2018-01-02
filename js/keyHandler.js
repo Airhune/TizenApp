@@ -81,38 +81,23 @@ window.onload = function(){
 						case VK_ENTER:
 							break;
 						case VK_UP:
-							var angle;
-							if($('.viewPhoto').css('transform') == 'none'){
-								angle = 0;
-							} else{
-								var matrix = $('.viewPhoto').css('transform');
-								console.log(matrix);
-								var values = matrix.split('(')[1].split(')')[0].split(',');
-								var a = values[0];
-								var b = values[0];
-								
-								var scale = Math.sqrt(a*a + b*b);
-								
-								var sin = b/scale;
-								
-								angle = Math.round(Math.atan2(b,a) * (180/Math.PI));
-							}
-							console.log(angle);
+							var el = document.getElementById("mainPhoto");
+							var st = window.getComputedStyle(el, null);
+							var tr = st.getPropertyValue("-webkit-transform") ||
+							         st.getPropertyValue("-moz-transform") ||
+							         st.getPropertyValue("-ms-transform") ||
+							         st.getPropertyValue("-o-transform") ||
+							         st.getPropertyValue("transform") ||
+							         "FAIL";
+							var values = tr.split('(')[1].split(')')[0].split(',');
+							var a = values[0];
+							var b = values[1];
 							
-							angle += 90;
-							
+							var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+
+							angle+= 90;
 							 $('.viewPhoto').css('transform','rotate('+angle+'deg)');
-							
-							 //degrees += 90;
-							
-//							$('.viewPhoto').css({
-//						        '-webkit-transform': 'rotate('+ degrees +'deg)',
-//						        '-moz-transform': 'rotate('+ degrees +'deg)',
-//						        'transform': 'rotate('+ degrees +'deg)'
-//						    });
-							
-							
-							break;
+							 break;
 						case VK_DOWN:
 							degrees -= 90;
 							$('.viewPhoto').css({
