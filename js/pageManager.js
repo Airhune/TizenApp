@@ -190,7 +190,7 @@ function createPage(numPage){
 			var div_viewer = $('<div class="container-fluid photoViewer"></div>');
 			div_viewer.append('<img class="viewPhoto" src='+focused+' alt="">');
 			
-			var bar = $("<div class='bar navigate'></div>");
+			var bar = $("<div id=navigate class='bar navigate'></div>");
 			 
 			
 			var prevB = $("<button id=prev name=prev class=viewerB type=button><</button>");

@@ -81,35 +81,35 @@ window.onload = function(){
 						case VK_ENTER:
 							break;
 						case VK_UP:
-							var angle;
-							if($('.viewPhoto').css('transform') == 'none'){
-								angle = 0;
-							} else{
-								var matrix = $('.viewPhoto').css('transform');
-								console.log(matrix);
-								var values = matrix.split('(')[1].split(')')[0].split(',');
-								var a = values[0];
-								var b = values[0];
-								
-								var scale = Math.sqrt(a*a + b*b);
-								
-								var sin = b/scale;
-								
-								angle = Math.round(Math.atan2(b,a) * (180/Math.PI));
-							}
-							console.log(angle);
+//							var angle;
+//							if($('.viewPhoto').css('transform') == 'none'){
+//								angle = 0;
+//							} else{
+//								var matrix = $('.viewPhoto').css('transform');
+//								console.log(matrix);
+//								var values = matrix.split('(')[1].split(')')[0].split(',');
+//								var a = values[0];
+//								var b = values[0];
+//								
+//								var scale = Math.sqrt(a*a + b*b);
+//								
+//								var sin = b/scale;
+//								
+//								angle = Math.round(Math.atan2(b,a) * (180/Math.PI));
+//							}
+//							console.log(angle);
+//							
+//							angle += 90;
+//							
+//							 $('.viewPhoto').css('transform','rotate('+angle+'deg)');
 							
-							angle += 90;
+							 degrees += 90;
 							
-							 $('.viewPhoto').css('transform','rotate('+angle+'deg)');
-							
-							 //degrees += 90;
-							
-//							$('.viewPhoto').css({
-//						        '-webkit-transform': 'rotate('+ degrees +'deg)',
-//						        '-moz-transform': 'rotate('+ degrees +'deg)',
-//						        'transform': 'rotate('+ degrees +'deg)'
-//						    });
+							$('.viewPhoto').css({
+						        '-webkit-transform': 'rotate('+ degrees +'deg)',
+						        '-moz-transform': 'rotate('+ degrees +'deg)',
+						        'transform': 'rotate('+ degrees +'deg)'
+						    });
 							
 							
 							break;
@@ -125,7 +125,10 @@ window.onload = function(){
 							goPage('europeMap');
 							break;
 						case VK_BLUE:
-							
+							$('.row-lg-4').empty();
+							setTimeout(function() {
+								  $('#navigate').fadeOut('fast');
+								}, 30000)
 							break;
 						default:
 								break;
