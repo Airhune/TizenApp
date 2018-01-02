@@ -81,6 +81,7 @@ window.onload = function(){
 						case VK_ENTER:
 							break;
 						case VK_UP:
+<<<<<<< HEAD
 //							var angle;
 //							if($('.viewPhoto').css('transform') == 'none'){
 //								angle = 0;
@@ -113,6 +114,25 @@ window.onload = function(){
 							
 							
 							break;
+=======
+							var el = document.getElementById("mainPhoto");
+							var st = window.getComputedStyle(el, null);
+							var tr = st.getPropertyValue("-webkit-transform") ||
+							         st.getPropertyValue("-moz-transform") ||
+							         st.getPropertyValue("-ms-transform") ||
+							         st.getPropertyValue("-o-transform") ||
+							         st.getPropertyValue("transform") ||
+							         "FAIL";
+							var values = tr.split('(')[1].split(')')[0].split(',');
+							var a = values[0];
+							var b = values[1];
+							
+							var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+
+							angle+= 90;
+							 $('.viewPhoto').css('transform','rotate('+angle+'deg)');
+							 break;
+>>>>>>> ee25435375a3b787ae5ba50dab61bf792e20b674
 						case VK_DOWN:
 							degrees -= 90;
 							$('.viewPhoto').css({

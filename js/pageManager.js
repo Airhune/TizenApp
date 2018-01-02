@@ -188,7 +188,7 @@ function createPage(numPage){
 			logoHeader.append(logo);
 
 			var div_viewer = $('<div class="container-fluid photoViewer"></div>');
-			div_viewer.append('<img class="viewPhoto" src='+focused+' alt="">');
+			div_viewer.append('<img class="viewPhoto" id="mainPhoto" src='+focused+' alt="">');
 			
 			var bar = $("<div id=navigate class='bar navigate'></div>");
 			 
