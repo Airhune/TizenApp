@@ -18,9 +18,9 @@ var setRotator = (function () {
         var radians = degrees * Math.PI / 180,
             sum;
         
-        console.log("radians " + radians);
-        console.log("degrees " + degrees);
-        console.log("offset " + offsetAngle);
+//        console.log("radians " + radians);
+//        console.log("degrees " + degrees);
+//        console.log("offset " + offsetAngle);
        if (degrees < 90) {
             sum = radians - offsetAngle;
        } else if (degrees < 180) {
@@ -28,10 +28,9 @@ var setRotator = (function () {
         } else if (degrees < 270) {
             sum = radians - offsetAngle;
         } else {
-            sum = radians - offsetAngle;
+            sum = radians + offsetAngle;
        }
-
-        return (originalHeight / Math.cos(sum)) / originalFactor;
+        return Math.abs((originalHeight / Math.cos(sum)) / originalFactor);
     };
 
     return function (inner) {
