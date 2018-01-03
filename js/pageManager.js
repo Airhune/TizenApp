@@ -245,7 +245,7 @@ function createPage(numPage){
 				div_bgImg.attr('class',"bg");
 				
 			var div_countryPanel = $(document.createElement("div"));
-			var p_countryPanel = $(document.createElement("p")).text("ESPAÑA");
+			var p_countryPanel = $(document.createElement("p")).text("España");
 				p_countryPanel.attr('class',"countryPanel");
 				
 				div_countryPanel.append(p_countryPanel);
@@ -290,10 +290,10 @@ function createPage(numPage){
 			var div_viewer = $('<div class="container-fluid fullscreen"></div>');
 			div_viewer.append('<img class="fullscreenPhoto" id="mainPhoto" src='+focused+' alt="">');
 			
-			var bar = $("<div id=navigate class='bar navigate'></div>");
-			var fullscreenB = $("<img id=fullscreen name=fullscreen class=viewerB src=./img/fullscreen_button.jpg>");
+			//var bar = $("<div id=navigate class='bar navigate'></div>");
+			//var fullscreenB = $("<img id=fullscreen name=fullscreen class=viewerB src=./img/fullscreen_button.jpg>");
 
-			bar.append(fullscreenB);
+			//bar.append(fullscreenB);
 			
 			//div_viewer.append(bar);
 			
