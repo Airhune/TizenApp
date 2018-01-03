@@ -199,7 +199,7 @@ function createPage(numPage){
 			var logo = $("<img class=logo src=./img/aperture.png>");
 			logoHeader.append(logo);
 
-			var div_viewer = $('<div class="container-fluid photoViewer"></div>');
+			var div_viewer = $('<div class="container-fluid photoViewer id="inner"></div>');
 			div_viewer.append('<img class="viewPhoto" id="mainPhoto" src='+focused+' alt="">');
 			
 			var bar = $("<div id=navigate class='bar navigate'></div>");
@@ -295,13 +295,13 @@ function createPage(numPage){
 
 			bar.append(fullscreenB);
 			
-			div_viewer.append(bar);
+			//div_viewer.append(bar);
 			
 			div_body.append(div_viewer);
 			
-			setTimeout(function() {
-				  $('#navigate').fadeOut('fast');
-			}, 2000)
+//			setTimeout(function() {
+//				  $('#navigate').fadeOut('fast');
+//			}, 2000)
 			
 
 			break;
