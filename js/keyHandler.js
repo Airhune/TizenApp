@@ -78,20 +78,11 @@ window.onload = function(){
 						case VK_ENTER:
 							break;
 						case VK_YELLOW:
-							var degrees = 90;
-							rotateDeg();
-							//var angleImg = rotateImg();
-							//angleImg+=90;
-							//angle+= 90;
-							//$('.viewPhoto').css({'transform':'rotate('+angleImg+'deg)',
-								//'transform':'scale(' + angle+ ')'});
-							$('.viewPhoto').css('transform','scale(' + angle+ ')');
+							rotateDeg("clock");
 							 break;
 
 						case VK_BLUE:
-							var angle = rotateImg();
-							//angle-= 90;
-							// $('.mainPhoto').css('transform','rotate('+angle+'deg)');
+							rotateDeg("counterClock");
 							break;
 							
 						case VK_GREEN:

@@ -52,13 +52,17 @@ var setRotator = (function () {
 
 }());
 
-function rotateDeg(){
+function rotateDeg(wise){
 	var outer = document.getElementById('inner'),
     inner = document.getElementById('mainPhoto'),
     rotator = setRotator(inner);
 
-	
-    degrees += 90;
+	if(wise == 'clock'){
+		degrees += 90;
+	} else{
+		degrees -= 90;
+	}
+
 
     if (degrees >= 360) {
         degrees = 0;
