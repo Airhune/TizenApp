@@ -259,6 +259,7 @@ function createPage(numPage){
 				    var button_country = $(document.createElement("button"));
 						button_country.attr('class','countryButton');
 						button_country.attr('id', countries[i].name);
+						button_country.attr('name', countries[i].name);
 						button_country.attr('focusable','');
 						button_country.html(countries[i].numPhotos);
 						

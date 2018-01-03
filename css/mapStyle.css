@@ -46,7 +46,7 @@
 
 
 /*COUNTRIES*/
-#Reino{
+button[name="Reino Unido"]{
 	position: absolute;
     left: 410px;
     top: 600px;
@@ -58,10 +58,28 @@
     top: 650px	
 }
 
-#Países{
+button[name="Países Bajos"]{
 	position: absolute;
     left: 550px;
     top: 580px
+}
+
+button[name="Bosnia y Herzegovina"]{
+	position: absolute;
+    left: 800px;
+    top: 820px;
+}
+
+button[name="República de Macedonia"]{
+	position: absolute;
+    left: 900px;
+    top: 880px;
+}
+
+#Bulgaria{
+	position: absolute;
+    left: 980px;
+    top: 850px;
 }
 
 #Suiza{
@@ -74,6 +92,36 @@
 	position: absolute;
     left: 700px;
     top: 850px;
+}
+
+#Azerbaiyán{
+	position: absolute;
+    left: 1430px;
+    top: 920px;
+}
+
+#Armenia{
+	position: absolute;
+    left: 1360px;
+    top: 930px;
+}
+
+#Albania{
+	position: absolute;
+    left: 830px;
+    top: 890px;
+}
+
+#Georgia{
+	position: absolute;
+    left: 1330px;
+    top: 870px;
+}
+
+#Turquía{
+	position: absolute;
+    left: 1130px;
+    top: 950px;
 }
 
 #Austria{
