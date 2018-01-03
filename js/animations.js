@@ -13,7 +13,7 @@ function animationHover(element, animation){
 }
 
 $(document).ready(function(){
-    $('.logoHeader').each(function() {
+    $('.formError').each(function() {
         animationHover(this, 'zoomIn');
     });
 });

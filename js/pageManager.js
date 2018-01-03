@@ -162,9 +162,12 @@ function createPage(numPage){
 				input_button.attr('id','loginButton');
 				input_button.attr('value','Login');
 				input_button.attr('focusable','');
-	
-				
+
+			var errorMessage = $(document.createElement("p")).text("ESPAÑA");
+				errorMessage.attr('class','formError');
+
 				div_login.append(input_text);
+				div_login.append(errorMessage);
 				div_login.append(input_button);
 				
 				div_flickrForm.append(div_header);

@@ -61,9 +61,12 @@ function getMyFlickrPhotosInfo(id){
 	    		 photos.push({id: photo_id, server: photo_server, farm: photo_farm, secret: photo_secret, url: photo_url});
 	    	
 	    	})
-	    	
-	    	getPhotoGeo(photos);
-	    	
+	    	if(photos.length > 0){
+		    	getPhotoGeo(photos);
+	    	}
+	    	else{
+	    		console.log('ninguna imagen pública');
+	    	}	    	
 	      }
 	});
 }
@@ -123,7 +126,17 @@ function getMyFlickrId(username){
 	    	txt = "";
 	    	x = xmlDoc.getElementsByTagName("user");
 	    	user_id = $(x['0']).attr("id");
-	    	getMyFlickrPhotosInfo(user_id); 
+	    	
+	    	
+	    	s = xmlDoc.getElementsByTagName("rsp");
+	    	status = $(s['0']).attr("stat");
+	    	if(status === 'ok'){
+		    	getMyFlickrPhotosInfo(user_id); 
+	    	}
+	    	else{
+	    		userDoNotExistsMessage();
+	    		console.log('user do not exist');
+	    	}
 	    }
 	  };
 	  xmlhttp.open("GET", url, true);

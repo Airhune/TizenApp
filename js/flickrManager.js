@@ -107,6 +107,7 @@
 }
 
 function selectCountryPhotos(){
+	countryPhotos = new Array();
 	var current_className = $.caph.focus.controllerProvider.getInstance().getCurrentFocusItem().className.split(' ')[0];
 	var current_id = $.caph.focus.controllerProvider.getInstance().getCurrentFocusItem().id;
 	//if it's a countryButton

@@ -23,6 +23,11 @@ function usernameIsValid(){
 	}
 }
 
+function userDoNotExistsMessage(){
+	
+}
+
+
 $(function(){
     var keyboard = {
         'layout': [

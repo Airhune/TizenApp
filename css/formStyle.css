@@ -120,3 +120,6 @@ body{
    color: #000;
 }
 
+.formError{
+	background-color: black;
+}
