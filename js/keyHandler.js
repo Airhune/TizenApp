@@ -35,7 +35,7 @@ window.onload = function(){
 					switch (e.keyCode){
 						case VK_ENTER:
 							//Initiate keyboard
-					    	activateKeypad('#testInput');
+							activateKeypad('#testInput');
 					    	//goes to flickrGallery according to username
 					    	if(usernameIsValid()){goPage("flickrGallery");}
 							break;
