@@ -21,8 +21,7 @@
 	    
    	<!--     ANIMATE   -->
 	<link rel="stylesheet" type="text/css" href="./css/animate.css"></link>
-	<script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
-	    
+		    
 	 <!--     jQKeyboard   -->
 	<link rel="stylesheet" type="text/css" href="./lib/jQKeyboard/jQKeyboard.css"></link>
    	<script type="text/javascript" src="./lib/jQKeyboard/jQKeyboard.js"></script>
@@ -52,7 +51,7 @@
 		var userPath = new Array();
 		var username;
 		var currentPage = 1;
-		var focused;
+		var focused = new Object();
 		var countryPhotos;
 		var photos = new Array();
 		
@@ -63,7 +62,7 @@
 </head>
 <body >
 
-	<div class="container-fluid mainContainer" id="outer" >
+	<div class="container-fluid mainContainer" >
 	
 		<div class="container-fluid firstPage">
 		

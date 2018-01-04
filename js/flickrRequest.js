@@ -72,7 +72,7 @@ function getMyFlickrPhotosInfo(id){
 
 function getPhotoGeo(photos){
 	var aux = new Array();
-	
+	countries = new Array();
 	for (i = 0; i < photos.length; i++){
 		var url = 'https://api.flickr.com/services/rest/?&method=flickr.photos.getInfo&api_key=4db0036c5a3de87a0bb36e2d99b24fec&photo_id=' + photos[i].id + '&secret=' + photos[i].secret;
 					

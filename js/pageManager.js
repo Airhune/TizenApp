@@ -112,12 +112,22 @@ function createPage(numPage){
 			var div_center_text = $('<div class="row-lg-4 text-center"></div>');
 			div_center_text.append('<p class="text">Choose your site</p>');
 			
-			var div_center_usb = $('<div class="row-lg-4 text-center"></div>');
-			div_center_usb.append('<img id="usb" class="logoImg" src="./img/usb-large.png" name="usb" focusable>')
-			
+			var div_center_usb = $(document.createElement("div"));
+				div_center_usb.attr('class','row-lg-4 text-center');
+			var div_center_img = $(document.createElement("img"));
+				div_center_img.attr('id','usb');
+				div_center_img.attr('class','logoImg');
+				div_center_img.attr('src','./img/usb-large.png');
+				div_center_img.attr('name','usb');
+				div_center_img.attr('focusable','');
+				div_center_usb(div_center_img);
+				
+//			var div_center_usb = $('<div class="row-lg-4 text-center"></div>');
+//			div_center_usb.append('<img id="usb" class="logoImg" src="./img/usb-large.png" name="usb" focusable>')
+
 			var div_center_flickr = $('<div class="row-lg-4 text-center"></div>');
 			div_center_flickr.append('<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>');
-			
+
 			var div_center_instagram = $('<div class="row-lg-4 text-center"></div>');
 			div_center_instagram.append('<img id="instagram" class="logoImg" src="./img/instagram-large-disabled.png" name="instagram">');
 			
@@ -130,6 +140,9 @@ function createPage(numPage){
 			div_firstPage.append(div_column);
 			
 			div_body.append(div_firstPage);
+			$.caph.focus.$$toAvailable(div_center_usb);
+			$.caph.focus.$$toAvailable(div_center_flickr);
+
 			break;
 			
 		case "flickrForm":
@@ -203,7 +216,7 @@ function createPage(numPage){
 			logoHeader.append(logo);
 
 			var div_viewer = $('<div class="container-fluid photoViewer id="inner"></div>');
-			div_viewer.append('<img class="viewPhoto" id="mainPhoto" src='+focused+' alt="">');
+			div_viewer.append('<img class="viewPhoto" id="mainPhoto" src='+focused.url+' alt="">');
 			
 			var bar = $("<div id=navigate class='bar navigate'></div>");
 			 
@@ -291,7 +304,7 @@ function createPage(numPage){
 			var div_body = $('.mainContainer');
 			
 			var div_viewer = $('<div class="container-fluid fullscreen"></div>');
-			div_viewer.append('<img class="fullscreenPhoto" id="mainPhoto" src='+focused+' alt="">');
+			div_viewer.append('<img class="fullscreenPhoto" id="mainPhoto" src='+focused.url+' alt="">');
 			
 			//var bar = $("<div id=navigate class='bar navigate'></div>");
 			//var fullscreenB = $("<img id=fullscreen name=fullscreen class=viewerB src=./img/fullscreen_button.jpg>");

@@ -36,10 +36,7 @@ window.onload = function(){
 							//Initiate keyboard
 							activateKeypad('#testInput');
 					    	//goes to flickrGallery according to username
-					    	if(usernameIsValid()){
-					    		countries = new Array();
-					    		goPage("flickrGallery");
-					    		}
+					    	if(usernameIsValid()){goPage("flickrGallery");}
 							break;
 						case VK_RIGHT:
 						case VK_UP:
@@ -57,8 +54,9 @@ window.onload = function(){
 				case 6:
 					switch (e.keyCode){
 						case VK_ENTER:
-							focused = $('.focused > .image').first().attr('src');
-							if(focused.length > 0){goPage('photoViewer');}
+							focused.url = $('.focused > .image').first().attr('src');
+							focused.id = $('.focused > .image').first().attr('id');
+							if(focused.url.length > 0){goPage('photoViewer');}
 							break;
 						case VK_GREEN:
 							goPage('europeMap');
