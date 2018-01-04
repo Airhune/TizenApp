@@ -15,6 +15,7 @@
 .viewerB{
 	height: 100px;
     margin-right: 30px;
+    border-radius: 20px;
 }
 
 .navigate{
@@ -22,7 +23,7 @@
 }
 
 #next{
-	margin-right: 160px;
+	margin-right: 170px;
 }
 
 #prev{
@@ -30,13 +31,12 @@
 }
 
 #rotateI{
-	margin-right: 160px;
+	
 }
 
 #fullscreen{
-	margin-right: 160px;
+	margin-left: 310px;
 }
 
 #map{
-	margin-right: 100px;
 }

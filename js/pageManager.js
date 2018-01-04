@@ -116,7 +116,7 @@ function createPage(numPage){
 			div_center_usb.append('<img id="usb" class="logoImg" src="./img/usb-large.png" name="usb" focusable>')
 			
 			var div_center_flickr = $('<div class="row-lg-4 text-center"></div>');
-			div_center_flickr.append('<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickr" focusable>');
+			div_center_flickr.append('<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>');
 			
 			var div_center_instagram = $('<div class="row-lg-4 text-center"></div>');
 			div_center_instagram.append('<img id="instagram" class="logoImg" src="./img/instagram-large-disabled.png" name="instagram">');
@@ -216,14 +216,14 @@ function createPage(numPage){
 
 			var mapB = $("<img id=map name=map class=viewerB src=./img/map_button.jpg>");
 			
+			
+			bar.append(fullscreenB);
+			bar.append(mapB);
 			bar.append(prevB);
 			bar.append(playB);
 			bar.append(nextB);
 			bar.append(rotateDB);
 			bar.append(rotateIB);
-			bar.append(fullscreenB);
-			bar.append(mapB);
-			 
 			
 			
 			div_body.append(logoHeader);

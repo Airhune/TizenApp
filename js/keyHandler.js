@@ -36,7 +36,10 @@ window.onload = function(){
 							//Initiate keyboard
 					    	activateKeypad('#testInput');
 					    	//goes to flickrGallery according to username
-					    	if(usernameIsValid()){goPage("flickrGallery");}
+					    	if(usernameIsValid()){
+					    		countries = new Array();
+					    		goPage("flickrGallery");
+					    		}
 							break;
 						case VK_RIGHT:
 						case VK_UP:
@@ -91,6 +94,14 @@ window.onload = function(){
 							
 						case VK_RED:
 							goPage('fullscreen');
+							break;
+							
+						case VK_RIGHT:
+							console.log(focused);
+							
+							break;
+							
+						case VK_LEFT:
 							break;
 							
 						default:
