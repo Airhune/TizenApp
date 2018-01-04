@@ -1,4 +1,3 @@
-
 window.onload = function(){
 	
 	document.addEventListener("keydown", function(e) {
@@ -37,7 +36,10 @@ window.onload = function(){
 							//Initiate keyboard
 							activateKeypad('#testInput');
 					    	//goes to flickrGallery according to username
-					    	if(usernameIsValid()){goPage("flickrGallery");}
+					    	if(usernameIsValid()){
+					    		countries = new Array();
+					    		goPage("flickrGallery");
+					    		}
 							break;
 						case VK_RIGHT:
 						case VK_UP:
@@ -78,6 +80,30 @@ window.onload = function(){
 					switch (e.keyCode){
 						case VK_ENTER:
 							break;
+						case VK_YELLOW:
+							rotateDeg("clock");
+							 break;
+
+						case VK_BLUE:
+							rotateDeg("counterClock");
+							break;
+							
+						case VK_GREEN:
+							goPage('europeMap');
+							break;
+							
+						case VK_RED:
+							goPage('fullscreen');
+							break;
+							
+						case VK_RIGHT:
+							console.log(focused);
+							
+							break;
+							
+						case VK_LEFT:
+							break;
+							
 						default:
 								break;
 					}
@@ -87,6 +113,22 @@ window.onload = function(){
 					switch (e.keyCode){
 						case VK_ENTER:
 							goPage('countryGallery');
+							break;
+						default:
+								break;
+					}
+					break;
+					
+				case 7:
+					switch (e.keyCode){
+						case VK_ENTER:
+							break;
+						case VK_RED:
+							if(currentPage != 1 ){
+								userPath.pop();
+								goPage(nameOfPage(userPath[userPath.length-1]));
+								userPath.pop();
+							}
 							break;
 						default:
 								break;

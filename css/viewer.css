@@ -1,28 +1,21 @@
 .photoViewer{
 	text-align: center;
 	background-image: url("../img/bg3.jpg");
-	margin-top: 30px;
     margin-left: -15px;
-    margin-right: -15px
+    margin-right: -15px;
 }
 
 .viewPhoto{
-	width: 70%;
+	width: 58%;
     margin-top: 1%;
     margin-bottom: 1%;	
+    /* transform: rotate(360deg); */
 }
 
 .viewerB{
-	height: 70px;
-	color: white;
-    font-size: 40px;
-    
-    border-radius: 30px;
-    background-color: #087a5b;
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
+	height: 100px;
+    margin-right: 30px;
+    border-radius: 20px;
 }
 
 .navigate{
@@ -30,17 +23,20 @@
 }
 
 #next{
-	margin-right: 100px;
+	margin-right: 170px;
 }
 
-#rotateD{
-	margin-right: 100px;
+#prev{
+	margin-left: 170px;
+}
+
+#rotateI{
+	
 }
 
 #fullscreen{
-	margin-right: 100px;
+	margin-left: 310px;
 }
 
 #map{
-	margin-right: 100px;
 }

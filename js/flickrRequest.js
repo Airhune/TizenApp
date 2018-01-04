@@ -42,9 +42,7 @@ function authToken(handleData){
 function getMyFlickrPhotosInfo(id){
 		
 	var url = 'https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=4db0036c5a3de87a0bb36e2d99b24fec&user_id=' + id;
-	
-	var photos = new Array();
-    
+	photos = new Array();
 	$.ajax({
 		  type: "GET",
 		  dataType: "xml",

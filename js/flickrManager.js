@@ -27,8 +27,8 @@
 	 
 	 var bar = $("<div id=bar class=bar></div>");
 		 
-	 var backB = $("<button class=galleryB type=button>Back</button>");
-	 var mapB = $("<button class=galleryB type=button>Map</button>");
+	 var backB = $("<img class=galleryB src=./img/back_button.jpg>");
+	 var mapB = $("<img class=galleryB src=./img/map_button.jpg>");
 	 
 	 bar.append(backB);
 	 bar.append(mapB);
@@ -97,8 +97,8 @@
 	 
 	 var bar = $("<div id=bar class=bar></div>");
 		 
-	 var backB = $("<button class=galleryB type=button>Back</button>");
-	 var mapB = $("<button class=galleryB type=button>Map</button>");
+	 var backB = $("<img class=galleryB src=./img/back_button.jpg>");
+	 var mapB = $("<img class=galleryB src=./img/map_button.jpg>");
 	 
 	 bar.append(backB);
 	 bar.append(mapB);

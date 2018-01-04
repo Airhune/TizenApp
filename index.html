@@ -21,6 +21,7 @@
 	    
    	<!--     ANIMATE   -->
 	<link rel="stylesheet" type="text/css" href="./css/animate.css"></link>
+	<script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
 	    
 	 <!--     jQKeyboard   -->
 	<link rel="stylesheet" type="text/css" href="./lib/jQKeyboard/jQKeyboard.css"></link>
@@ -32,6 +33,7 @@
 	<script type="text/javascript" src="./js/pageManager.js"></script>
 	<script type="text/javascript" src="./js/gridManager.js"></script>
 	<script type="text/javascript" src="./js/fileSystemManager.js"></script>
+	<script type="text/javascript" src="./js/viewerManager.js"></script>
 	<script type="text/javascript" src="./js/formSettings.js"></script>
 	<script type="text/javascript" src="./js/InstagramPhotos.js"></script>
 	<script type="text/javascript" src="./js/flickrManager.js"></script>
@@ -43,13 +45,16 @@
 	<link rel="stylesheet" type="text/css" href="./css/mapStyle.css"></link>
 	<link rel="stylesheet" type="text/css" href="./css/gallery.css">
 	<link rel="stylesheet" type="text/css" href="./css/viewer.css">
+	<link rel="stylesheet" type="text/css" href="./css/fullscreen.css">
 	
 	<script>
 		var countries = new Array();
-		var userPath = new Array();var username;
+		var userPath = new Array();
+		var username;
 		var currentPage = 1;
 		var focused;
 		var countryPhotos;
+		var photos = new Array();
 		
 		userPath.push(currentPage);
 		
@@ -58,32 +63,33 @@
 </head>
 <body >
 
-	<div class="container-fluid mainContainer" >
+	<div class="container-fluid mainContainer" id="outer" >
 	
-					<div class="container-fluid firstPage">
+		<div class="container-fluid firstPage">
 		
 				<div class="row-lg-4 logoHeader"> 
 					<img class="logo" src="./img/aperture.png">
 				</div>
 				
-		 		<div class="column">
+		 	<div class="column">
 	 			<div class="row-lg-4 text-center" >
 				    	<p class="text">Choose your site</p>
-				    </div>
-				    <div class="row-lg-4 text-center" >
-				    	<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>
-				    </div>
-				    
-				    <div class="row-lg-4 text-center" >
-				    	<img id="instagram" class="logoImg" src="./img/usb-large.png" name="instagram" focusable>
-				    </div>
-				    
-				    <div class="row-lg-4 text-center" >
-				    	<img id="pinterest" class="logoImg" src="./img/instagram-large.png" name="pinterest" focusable>
-				    </div> 
-			  	</div>
+			    </div>
+			    
+			    <div class="row-lg-4 text-center" >
+			    	<img id="usb" class="logoImg" src="./img/usb-large.png" name="usb" focusable>
+			    </div>
+			    
+			    <div class="row-lg-4 text-center" >
+			    	<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>
+			    </div>
+			    
+			    <div class="row-lg-4 text-center" >
+			    	<img id="instagram" class="logoImg" src="./img/instagram-large-disabled.png" name="instagram">
+			    </div> 
+			 </div>
 			  	
-			</div>
+		</div>
 		
 	</div>
 	
