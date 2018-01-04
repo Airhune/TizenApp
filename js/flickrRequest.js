@@ -65,7 +65,8 @@ function getMyFlickrPhotosInfo(id){
 		    	getPhotoGeo(photos);
 	    	}
 	    	else{
-	    		console.log('ninguna imagen pública');
+	    		goPage('flickrForm');
+	    		formErrorMessage("User don't have public images");
 	    	}	    	
 	      }
 	});
@@ -127,15 +128,14 @@ function getMyFlickrId(username){
 	    	x = xmlDoc.getElementsByTagName("user");
 	    	user_id = $(x['0']).attr("id");
 	    	
-	    	
 	    	s = xmlDoc.getElementsByTagName("rsp");
 	    	status = $(s['0']).attr("stat");
 	    	if(status === 'ok'){
 		    	getMyFlickrPhotosInfo(user_id); 
 	    	}
 	    	else{
-	    		userDoNotExistsMessage();
-	    		console.log('user do not exist');
+	    		goPage('flickrForm');
+	    		formErrorMessage('User do not exists');
 	    	}
 	    }
 	  };

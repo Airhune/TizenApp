@@ -163,7 +163,7 @@ function createPage(numPage){
 				input_button.attr('value','Login');
 				input_button.attr('focusable','');
 
-			var errorMessage = $(document.createElement("p")).text("ESPAÑA");
+			var errorMessage = $(document.createElement("p")).text("");
 				errorMessage.attr('class','formError');
 
 				div_login.append(input_text);

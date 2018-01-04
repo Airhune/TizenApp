@@ -121,5 +121,7 @@ body{
 }
 
 .formError{
-	background-color: black;
+	margin-left: 120px;
+	font-size: 25px;
+	color: red;
 }

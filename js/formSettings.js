@@ -14,8 +14,7 @@ function usernameIsValid(){
 			return true;
 		}
 		else{
-			//ToDo: some advice?
-			console.log("Error message: username is empty");
+    		formErrorMessage('Username is empty');
 			return false;
 		}	    	
 	}else{
@@ -23,8 +22,8 @@ function usernameIsValid(){
 	}
 }
 
-function userDoNotExistsMessage(){
-	
+function formErrorMessage(message){
+	$('.formError').html(message);
 }
 
 
