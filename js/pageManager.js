@@ -14,6 +14,15 @@ function removePage(pageContainerClass){
 	}
 }
 
+function goBack(){
+	if(currentPage != 1 ){
+		userPath.pop();
+		goPage(nameOfPage(userPath[userPath.length-1]));
+		userPath.pop();
+	}
+}
+
+
 function nameOfPage(number){
 	var name;
 	switch(number){
@@ -39,7 +48,6 @@ function nameOfPage(number){
 			name = "fullscreen";
 			break;
 	}
-	console.log(name);
 	return name;
 }
 
@@ -300,7 +308,6 @@ function createPage(numPage){
 			break;
 			
 		case "fullscreen":
-			
 			var div_body = $('.mainContainer');
 			
 			var div_viewer = $('<div class="container-fluid fullscreen"></div>');

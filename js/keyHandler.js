@@ -7,11 +7,7 @@ window.onload = function(){
 			switch (e.keyCode){
 				//GO BACK
 				case VK_BACK:
-					if(currentPage != 1 ){
-						userPath.pop();
-						goPage(nameOfPage(userPath[userPath.length-1]));
-						userPath.pop();
-					}
+					goBack();
 					break;
 				default:
 						break;
@@ -95,11 +91,11 @@ window.onload = function(){
 							break;
 							
 						case VK_RIGHT:
-							console.log(focused);
-							
+							nextPhoto();
 							break;
 							
 						case VK_LEFT:
+							previousPhoto();
 							break;
 							
 						default:
@@ -122,11 +118,7 @@ window.onload = function(){
 						case VK_ENTER:
 							break;
 						case VK_RED:
-							if(currentPage != 1 ){
-								userPath.pop();
-								goPage(nameOfPage(userPath[userPath.length-1]));
-								userPath.pop();
-							}
+							goBack();
 							break;
 						default:
 								break;
