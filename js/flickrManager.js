@@ -30,7 +30,7 @@
 	 var backB = $("<img class=galleryB src=./img/back_button.jpg>");
 	 var mapB = $("<img class=galleryB src=./img/map_button.jpg>");
 	 
-	 bar.append(backB);
+	// bar.append(backB);
 	 bar.append(mapB);
 	 
 	 $('.flickrGallery').append(bar);  
@@ -100,7 +100,7 @@
 	 var backB = $("<img class=galleryB src=./img/back_button.jpg>");
 	 var mapB = $("<img class=galleryB src=./img/map_button.jpg>");
 	 
-	 bar.append(backB);
+	 //bar.append(backB);
 	 bar.append(mapB);
 	 
 	 $('.flickrGallery').append(bar);
@@ -125,46 +125,93 @@ function selectCountryPhotos(){
 }
 
 function nextPhoto(){
-	console.log(countryPhotos);
-	//if you are on country or full-gallery
-	console.log(userPath[userPath.length-2]);
-	//if last page was the gallery
-	if(userPath[userPath.length-2] == 3){
+	
+	console.log(userPath);
+	
+	//Si estas en fullscreen i l'anterior es la galeria de flickr
+	if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 3){
 		for(var i = 0; i < photos.length;i++){
 			if(photos[i].id == focused.id){
 				break;
 			}
 		}
-		$('.viewPhoto').attr('src',photos[i+1].url);
+		$('.fullscreenPhoto').attr('src',photos[i+1].url);
 		focused.url = photos[i+1].url;
 		focused.id = photos[i+1].id;
-	}else{
-		for(var i = 0; i < countryPhotos.length; i++){
-			if(countryPhotos[i] === $('.viewPhoto').attr('src')){
-				break;
+	} else {
+		//Si estas en fullscreen i l'anterior es la coutry galery
+		if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 6){
+			for(var i = 0; i < countryPhotos.length; i++){
+				if(countryPhotos[i] === $('.fullscreenPhoto').attr('src')){
+					break;
+				}
+			}
+			$('.fullscreenPhoto').attr('src',countryPhotos[i+1]);
+		} else {
+			//Si estas al viewer i vens de la galeria de flickr
+			if(userPath[userPath.length-2] == 3){
+				for(var i = 0; i < photos.length;i++){
+					if(photos[i].id == focused.id){
+						break;
+					}
+				}
+				$('.viewPhoto').attr('src',photos[i+1].url);
+				focused.url = photos[i+1].url;
+				focused.id = photos[i+1].id;
+			}else{
+				//Si vens de la country galeria
+				for(var i = 0; i < countryPhotos.length; i++){
+					if(countryPhotos[i] === $('.viewPhoto').attr('src')){
+						break;
+					}
+				}
+				$('.viewPhoto').attr('src',countryPhotos[i+1]);
 			}
 		}
-		$('.viewPhoto').attr('src',countryPhotos[i+1]);
-	}
+	}	
 }
 
 function previousPhoto(){
-	//if last page was the gallery
-	if(userPath[userPath.length-2] == 3){
+	
+	//Si estas en fullscreen i l'anterior es la galeria de flickr
+	if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 3){
 		for(var i = 0; i < photos.length;i++){
 			if(photos[i].id == focused.id){
 				break;
 			}
 		}
-		$('.viewPhoto').attr('src',photos[i+1].url);
+		$('.fullscreenPhoto').attr('src',photos[i+1].url);
 		focused.url = photos[i-1].url;
 		focused.id = photos[i-1].id;
-	}else{ //last page was the country-gallery
-		for(var i = 0; i < countryPhotos.length; i++){
-			if(countryPhotos[i] === $('.viewPhoto').attr('src')){
-				break;
+	} else {
+		//Si estas en fullscreen i l'anterior es la coutry galery
+		if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 6){
+			for(var i = 0; i < countryPhotos.length; i++){
+				if(countryPhotos[i] === $('.fullscreenPhoto').attr('src')){
+					break;
+				}
+			}
+			$('.fullscreenPhoto').attr('src',countryPhotos[i-1]);
+		} else {
+			//Si estas al viewer i vens de la galeria de flickr
+			if(userPath[userPath.length-2] == 3){
+				for(var i = 0; i < photos.length;i++){
+					if(photos[i].id == focused.id){
+						break;
+					}
+				}
+				$('.viewPhoto').attr('src',photos[i+1].url);
+				focused.url = photos[i-1].url;
+				focused.id = photos[i-1].id;
+			}else{
+				//Si vens de la country galeria
+				for(var i = 0; i < countryPhotos.length; i++){
+					if(countryPhotos[i] === $('.viewPhoto').attr('src')){
+						break;
+					}
+				}
+				$('.viewPhoto').attr('src',countryPhotos[i-1]);
 			}
 		}
-		$('.viewPhoto').attr('src',countryPhotos[i-1]);
-	}
+	}	
 }

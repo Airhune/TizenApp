@@ -1,5 +1,5 @@
 var degrees = 0;
-
+var slideIndex = 0;
 var setRotator = (function () {
 
     var setRotation,
@@ -89,4 +89,60 @@ function rotateImg(){
 	var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
 	
 	return angle;
+}
+
+function getActualPhoto(){
+	
+	console.log(countryPhotos);
+	
+	if(userPath[userPath.length-3] == 3){
+		for(var i = 0; i < photos.length;i++){
+			if(photos[i].url == document.getElementById("fullscreenPhoto").src){
+				break;
+			}
+		}
+	} else{
+		for(var i = 0; i < countryPhotos.length;i++){
+			if(countryPhotos[i] == document.getElementById("fullscreenPhoto").src){
+				break;
+			}
+		}
+	}
+	return i;
+}
+
+function slideShow(index){
+	slideIndex = index - 1;
+	
+	nextSlide();
+	
+}
+
+function nextSlide(){
+	
+	slideIndex++;
+	
+	if(userPath[userPath.length-3] == 3){
+
+		if (slideIndex >= photos.length){
+			slideIndex = 0;
+		}
+		
+		var file = photos[slideIndex];
+		var url =  photos[slideIndex].url;
+		
+	} else{
+
+		if (slideIndex >= countryPhotos.length){
+			slideIndex = 0;
+		}
+		
+		var file = countryPhotos[slideIndex];
+		var url =  countryPhotos[slideIndex];
+	}
+	
+	
+	document.getElementById("fullscreenPhoto").src = url;		
+	
+	setTimeout(nextSlide, 2500);
 }

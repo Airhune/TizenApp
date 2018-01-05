@@ -127,7 +127,6 @@ function createPage(numPage){
 				div_center_img.attr('class','logoImg');
 				div_center_img.attr('src','./img/usb-large.png');
 				div_center_img.attr('name','usb');
-				div_center_img.attr('focusable','');
 				div_center_usb(div_center_img);
 				
 //			var div_center_usb = $('<div class="row-lg-4 text-center"></div>');
@@ -140,15 +139,14 @@ function createPage(numPage){
 			div_center_instagram.append('<img id="instagram" class="logoImg" src="./img/instagram-large-disabled.png" name="instagram">');
 			
 			div_column.append(div_center_text);
-			div_column.append(div_center_usb);
 			div_column.append(div_center_flickr);
+			div_column.append(div_center_usb);
 			div_column.append(div_center_instagram);
 			
 			div_firstPage.append(div_logoHeader);
 			div_firstPage.append(div_column);
 			
 			div_body.append(div_firstPage);
-			$.caph.focus.$$toAvailable(div_center_usb);
 			$.caph.focus.$$toAvailable(div_center_flickr);
 
 			break;
@@ -311,7 +309,7 @@ function createPage(numPage){
 			var div_body = $('.mainContainer');
 			
 			var div_viewer = $('<div class="container-fluid fullscreen"></div>');
-			div_viewer.append('<img class="fullscreenPhoto" id="mainPhoto" src='+focused.url+' alt="">');
+			div_viewer.append('<img class="fullscreenPhoto" id="fullscreenPhoto" src='+focused.url+' alt="">');
 			
 			//var bar = $("<div id=navigate class='bar navigate'></div>");
 			//var fullscreenB = $("<img id=fullscreen name=fullscreen class=viewerB src=./img/fullscreen_button.jpg>");

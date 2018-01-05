@@ -6,10 +6,11 @@
 }
 
 .viewPhoto{
-	width: 58%;
     margin-top: 1%;
     margin-bottom: 1%;	
     /* transform: rotate(360deg); */
+    max-height: 700px;
+    min-height: 700px;
 }
 
 .viewerB{
@@ -20,6 +21,7 @@
 
 .navigate{
 	margin-left: -15px;
+	padding-bottom: 40px;
 }
 
 #next{

@@ -59,11 +59,11 @@ window.onload = function(){
 							break;
 						case VK_UP:
 							e.preventDefault();
-							window.scrollBy(0, -280);
+							window.scrollBy(0, -200);
 							break;
 						case VK_DOWN:
 							e.preventDefault();
-							window.scrollBy(0, 280);
+							window.scrollBy(0, 200);
 							break;
 						default:
 								break;
@@ -98,6 +98,12 @@ window.onload = function(){
 							previousPhoto();
 							break;
 							
+						case VK_PLAY:
+							goPage('fullscreen');
+							var i = getActualPhoto();
+							slideShow(i);
+							break;
+								
 						default:
 								break;
 					}
@@ -118,7 +124,15 @@ window.onload = function(){
 						case VK_ENTER:
 							break;
 						case VK_RED:
+						case VK_STOP:
 							goBack();
+							break;
+						case VK_RIGHT:
+							nextPhoto();
+							break;
+							
+						case VK_LEFT:
+							previousPhoto();
 							break;
 						default:
 								break;

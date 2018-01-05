@@ -16,9 +16,9 @@ if (typeof(VK_RED)=='undefined') {
 	var VK_BLUE = 406; //0x42;
 }
 if (typeof(VK_PLAY)=='undefined') {
-	var VK_PLAY = 0x50;
-	var VK_PAUSE = 0x51;
-	var VK_STOP = 0x53;
+	var VK_PLAY = 415; //0x50;
+	var VK_PAUSE = 19; //0x51;
+	var VK_STOP = 413; //0x53;
 }
 if (typeof(VK_FAST_FWD)=='undefined') {
 	var VK_FAST_FWD = 0x46;
