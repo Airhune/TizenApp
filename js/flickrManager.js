@@ -180,7 +180,7 @@ function previousPhoto(){
 				break;
 			}
 		}
-		$('.fullscreenPhoto').attr('src',photos[i+1].url);
+		$('.fullscreenPhoto').attr('src',photos[i-1].url);
 		focused.url = photos[i-1].url;
 		focused.id = photos[i-1].id;
 	} else {
@@ -200,7 +200,7 @@ function previousPhoto(){
 						break;
 					}
 				}
-				$('.viewPhoto').attr('src',photos[i+1].url);
+				$('.viewPhoto').attr('src',photos[i-1].url);
 				focused.url = photos[i-1].url;
 				focused.id = photos[i-1].id;
 			}else{
