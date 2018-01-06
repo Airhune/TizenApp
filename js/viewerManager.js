@@ -92,9 +92,6 @@ function rotateImg(){
 }
 
 function getActualPhoto(){
-	
-	console.log(countryPhotos);
-	
 	if(userPath[userPath.length-3] == 3){
 		for(var i = 0; i < photos.length;i++){
 			if(photos[i].url == document.getElementById("fullscreenPhoto").src){
@@ -114,12 +111,10 @@ function getActualPhoto(){
 function slideShow(index){
 	slideIndex = index - 1;
 	
-	nextSlide();
-	
+	timer = window.setInterval(nextSlide, 2500);
 }
 
 function nextSlide(){
-	
 	slideIndex++;
 	
 	if(userPath[userPath.length-3] == 3){
@@ -131,7 +126,7 @@ function nextSlide(){
 		var file = photos[slideIndex];
 		var url =  photos[slideIndex].url;
 		
-	} else{
+	} else if (userPath[userPath.length-3] == 6){
 
 		if (slideIndex >= countryPhotos.length){
 			slideIndex = 0;
@@ -141,8 +136,11 @@ function nextSlide(){
 		var url =  countryPhotos[slideIndex];
 	}
 	
-	
-	document.getElementById("fullscreenPhoto").src = url;		
-	
-	setTimeout(nextSlide, 2500);
+	if(document.getElementById("fullscreenPhoto")!== null){
+		document.getElementById("fullscreenPhoto").src = url;
+	}else{
+		console.log("stop that fukin taaaim");
+		window.clearTimeout(timer);
+	}
 }
+

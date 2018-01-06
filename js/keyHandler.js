@@ -100,8 +100,7 @@ window.onload = function(){
 							
 						case VK_PLAY:
 							goPage('fullscreen');
-							var i = getActualPhoto();
-							slideShow(i);
+							slideShow(getActualPhoto());
 							break;
 								
 						default:
