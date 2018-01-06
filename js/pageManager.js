@@ -84,30 +84,6 @@ function setCurrentPage(numPage){
 function createPage(numPage){
 	switch (numPage){
 		case "firstPage":
-	//		<div class="container-fluid firstPage">
-	//	
-	//			<div class="row-lg-4 logoHeader"> 
-	//				<img class="logo" src="./img/aperture.png">
-	//			</div>
-	//			
-	//	 		<div class="column">
-	//	 			<div class="row-lg-4 text-center" >
-	//			    	<p class="text">Choose your site</p>
-	//			    </div>
-	//			    <div class="row-lg-4 text-center" >
-	//			    	<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>
-	//			    </div>
-	//			    
-	//			    <div class="row-lg-4 text-center" >
-	//			    	<img id="instagram" class="logoImg" src="./img/usb-large.png" name="instagram" focusable>
-	//			    </div>
-	//			    
-	//			    <div class="row-lg-4 text-center" >
-	//			    	<img id="pinterest" class="logoImg" src="./img/instagram-large.png" name="pinterest" focusable>
-	//			    </div> 
-	//		  	</div>
-	//		  	
-	//		</div>
 			var div_body = $('.mainContainer');
 			
 			var div_firstPage = $('<div class="container-fluid firstPage"></div>');
@@ -120,23 +96,33 @@ function createPage(numPage){
 			var div_center_text = $('<div class="row-lg-4 text-center"></div>');
 			div_center_text.append('<p class="text">Choose your site</p>');
 			
+			
 			var div_center_usb = $(document.createElement("div"));
 				div_center_usb.attr('class','row-lg-4 text-center');
-			var div_center_img = $(document.createElement("img"));
-				div_center_img.attr('id','usb');
-				div_center_img.attr('class','logoImg');
-				div_center_img.attr('src','./img/usb-large.png');
-				div_center_img.attr('name','usb');
-				div_center_usb(div_center_img);
+				div_center_usb.attr('text-center','');
+
+			var div_center_usb_img = $(document.createElement("img"));
+				div_center_usb_img.attr('id','usb');
+				div_center_usb_img.attr('class','logoImg');
+				div_center_usb_img.attr('src','./img/usb-large.png');
+				div_center_usb_img.attr('name','usb');
+				div_center_usb_img.attr('focusable','');
 				
-//			var div_center_usb = $('<div class="row-lg-4 text-center"></div>');
-//			div_center_usb.append('<img id="usb" class="logoImg" src="./img/usb-large.png" name="usb" focusable>')
+				div_center_usb.append(div_center_usb_img);				
 
 			var div_center_flickr = $('<div class="row-lg-4 text-center"></div>');
-			div_center_flickr.append('<img id="flickr" class="logoImg" src="./img/flickr-large.png" name="flickrForm" focusable>');
+			
+			var div_center_flickr_img = $(document.createElement("img"));
+				div_center_flickr_img.attr('id','flickr');
+				div_center_flickr_img.attr('class','logoImg');
+				div_center_flickr_img.attr('src','./img/flickr-large.png');
+				div_center_flickr_img.attr('name','flickrForm');
+				div_center_flickr_img.attr('focusable','');
+				
+				div_center_flickr.append(div_center_flickr_img);
 
 			var div_center_instagram = $('<div class="row-lg-4 text-center"></div>');
-			div_center_instagram.append('<img id="instagram" class="logoImg" src="./img/instagram-large-disabled.png" name="instagram">');
+				div_center_instagram.append('<img id="instagram" class="logoImg" src="./img/instagram-large-disabled.png" name="instagram">');
 			
 			div_column.append(div_center_text);
 			div_column.append(div_center_flickr);
@@ -147,7 +133,8 @@ function createPage(numPage){
 			div_firstPage.append(div_column);
 			
 			div_body.append(div_firstPage);
-			$.caph.focus.$$toAvailable(div_center_flickr);
+			$.caph.focus.$$toAvailable(div_center_usb_img);
+			$.caph.focus.$$toAvailable(div_center_flickr_img);
 
 			break;
 			
@@ -163,15 +150,7 @@ function createPage(numPage){
 			var div_header = $(document.createElement("div"));
 				div_header.attr('class','header');
 				div_header.append('<img class="logoLogin" src="./img/flickr-large.png" name="flickr">');
-			
-//			var div_span = $(document.createElement("div"));
-//				div_span.html("Flick");
-//			var span = $(document.createElement("span"));
-//				span.html("r");
-				
-//				div_span.append(span);
-//				div_header.append(div_span);
-				
+
 			var div_login = $(document.createElement("div"));
 				div_login.attr('class','login');
 			
@@ -309,22 +288,8 @@ function createPage(numPage){
 			var div_body = $('.mainContainer');
 			
 			var div_viewer = $('<div class="container-fluid fullscreen"></div>');
-			div_viewer.append('<img class="fullscreenPhoto" id="fullscreenPhoto" src='+focused.url+' alt="">');
-			
-			//var bar = $("<div id=navigate class='bar navigate'></div>");
-			//var fullscreenB = $("<img id=fullscreen name=fullscreen class=viewerB src=./img/fullscreen_button.jpg>");
-
-			//bar.append(fullscreenB);
-			
-			//div_viewer.append(bar);
-			
+				div_viewer.append('<img class="fullscreenPhoto" id="fullscreenPhoto" src='+focused.url+' alt="">');
 			div_body.append(div_viewer);
-			
-//			setTimeout(function() {
-//				  $('#navigate').fadeOut('fast');
-//			}, 2000)
-			
-
 			break;
 			
 		default:

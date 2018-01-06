@@ -31,6 +31,10 @@ $(document).ready(function(){
 			//if virtual key is focused set style
 	    	if($(event.currentTarget).attr("class").split(' ')[0] === 'jQKeyboardBtn'){
 	    		$(event.currentTarget).css('background','#424242');
+	    	}else if($(event.currentTarget).attr("class").split(' ')[0] === 'logoImg'){
+	    		$(event.currentTarget).css({
+					border : '3px solid transparent'
+	        	});
 	    	}else{
 	    		$(event.currentTarget).css({
 					border : '0px solid transparent'

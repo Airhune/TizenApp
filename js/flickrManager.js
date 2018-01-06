@@ -124,10 +124,7 @@ function selectCountryPhotos(){
 	}
 }
 
-function nextPhoto(){
-	
-	console.log(userPath);
-	
+function nextPhoto(){	
 	//Si estas en fullscreen i l'anterior es la galeria de flickr
 	if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 3){
 		for(var i = 0; i < photos.length;i++){
