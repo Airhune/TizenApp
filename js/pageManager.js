@@ -291,7 +291,7 @@ function createPage(numPage){
 				div_viewer.append('<img class="fullscreenPhoto" id="fullscreenPhoto" src='+focused.url+' alt="">');
 			div_body.append(div_viewer);
 			break;
-			
+
 		default:
 			console.log("Error goPage");
 		break;
