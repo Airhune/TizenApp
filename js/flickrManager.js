@@ -125,9 +125,7 @@ function selectCountryPhotos(){
 }
 
 function nextPhoto(){
-	console.log(countryPhotos);
 	//if you are on country or full-gallery
-	console.log(userPath[userPath.length-2]);
 	//if last page was the gallery
 	if(userPath[userPath.length-2] == 3){
 		for(var i = 0; i < photos.length;i++){
@@ -156,7 +154,7 @@ function previousPhoto(){
 				break;
 			}
 		}
-		$('.viewPhoto').attr('src',photos[i+1].url);
+		$('.viewPhoto').attr('src',photos[i-1].url);
 		focused.url = photos[i-1].url;
 		focused.id = photos[i-1].id;
 	}else{ //last page was the country-gallery
