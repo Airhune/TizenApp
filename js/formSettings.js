@@ -1,13 +1,22 @@
+/**
+ * Set focus again on Login button when try to login from virtual Keyboard
+ */
 function setFocusAgain(){
 		$('#testInput').focus();
 }
 
+/**
+ * Set focus again on Login button when for some reason caph loose focus
+ */
 function dontLoseFocus(){
 	$.caph.focus.controllerProvider.getInstance().blur();
 	$.caph.focus.controllerProvider.getInstance().focus($('#loginButton'));
 }
 
-function usernameIsValid(){
+/**
+ * Check if username is not empty, if it is show error
+ */
+function usernameIsNotEmpty(){
 	if($('.focused').first().attr('id') === 'loginButton'){
 		username = $('#testInput').val();	
 		if(username.length != 0){
@@ -22,11 +31,16 @@ function usernameIsValid(){
 	}
 }
 
+/**
+ * Give feedback error from form request
+ */
 function formErrorMessage(message){
 	$('.formError').html(message);
 }
 
-
+/**
+ * Set the layout for the virtual keyboard
+ */
 $(function(){
     var keyboard = {
         'layout': [

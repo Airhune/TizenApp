@@ -1,8 +1,14 @@
 
 $(document).ready(function(){
 	
+	/**
+	 * Initiate Caph
+	 */
 	$.caph.focus.activate(function(nearestFocusableFinderProvider, controllerProvider) {
 		
+		/**
+		 * Events for the focused elements
+		 */
 	    controllerProvider.onFocused(function(event, originalEvent) {//if map is ready
 	    	if($('.countryPanel').length > 0){
 	    		//set to the panel the value of the country
@@ -19,6 +25,9 @@ $(document).ready(function(){
 	    	
 	    });
 	    
+	    /**
+		 * Events for the selected elements
+		 */
 	    controllerProvider.onSelected(function(event, originalEvent) {
 	    	//if it's a virtual keyboard button
 	    	if($(event.currentTarget).attr("class").split(' ')[0] === 'jQKeyboardBtn'){
@@ -27,6 +36,9 @@ $(document).ready(function(){
 	    
 		});
 	    
+	    /**
+		 * Events for the blurred elements
+		 */
 		controllerProvider.onBlurred(function(event, originalEvent) {
 			//if virtual key is focused set style
 	    	if($(event.currentTarget).attr("class").split(' ')[0] === 'jQKeyboardBtn'){

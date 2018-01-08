@@ -1,10 +1,19 @@
-
-function goPage(numPage){
+/**
+ * Recives string with the page name
+ * removes the last container and
+ * create the new page.
+ * @param namePage to create
+ */
+function goPage(namePage){
 	removePage("mainContainer");
-	createPage(numPage);
-	setCurrentPage(numPage);
+	createPage(namePage);
+	setCurrentPage(namePage);
 }
 
+/**
+ * Removes the content of the container class name
+ * @param pageContainerClass container class name
+ */
 function removePage(pageContainerClass){
 	if($("."+pageContainerClass).length > 0){
 		$("."+pageContainerClass).empty();
@@ -14,6 +23,9 @@ function removePage(pageContainerClass){
 	}
 }
 
+/**
+ * Goes to the last page that the user has gone
+ */
 function goBack(){
 	if(currentPage != 1 ){
 		userPath.pop();
@@ -22,7 +34,11 @@ function goBack(){
 	}
 }
 
-
+/**
+ * Makes the conversion between the number of the page and returns their name
+ * @param number of the page
+ * @returns {String} name of the page
+ */
 function nameOfPage(number){
 	var name;
 	switch(number){
@@ -51,8 +67,12 @@ function nameOfPage(number){
 	return name;
 }
 
-function setCurrentPage(numPage){
-	switch (numPage){
+/**
+ * Sets the number of the currentPage
+ * @param namePage currently on
+ */
+function setCurrentPage(namePage){
+	switch (namePage){
 		case "firstPage":
 			currentPage = 1;
 			break;
@@ -75,14 +95,18 @@ function setCurrentPage(numPage){
 			currentPage = 7;
 			break;
 		default:
-			console.log("Error goPage"+numPage);
+			console.log("Error goPage"+namePage);
 		break;
 	}
 	userPath.push(currentPage);
 }
 
-function createPage(numPage){
-	switch (numPage){
+/**
+ * Creates with jQuery the html of the page
+ * @param namePage to create
+ */
+function createPage(namePage){
+	switch (namePage){
 		case "firstPage":
 			var div_body = $('.mainContainer');
 			

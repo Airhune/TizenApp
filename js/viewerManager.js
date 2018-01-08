@@ -1,5 +1,8 @@
 var degrees = 0;
 var slideIndex = 0;
+/**
+ * Set the rotator object, to rotate the image without breaking the container
+ */
 var setRotator = (function () {
 
     var setRotation,
@@ -17,10 +20,6 @@ var setRotator = (function () {
 
         var radians = degrees * Math.PI / 180,
             sum;
-        
-//        console.log("radians " + radians);
-//        console.log("degrees " + degrees);
-//        console.log("offset " + offsetAngle);
        if (degrees < 90) {
             sum = radians - offsetAngle;
        } else if (degrees < 180) {
@@ -52,6 +51,10 @@ var setRotator = (function () {
 
 }());
 
+/**
+ * Rotate the inner element 90 degrees according to the wise 
+ * @param wise direction to rotate, could be clock or counterclock
+ */
 function rotateDeg(wise){
 	var outer = document.getElementById('inner'),
     inner = document.getElementById('mainPhoto'),
@@ -72,25 +75,10 @@ function rotateDeg(wise){
 	
 }
 
-function rotateImg(){
-	var el = document.getElementById("mainPhoto");
-	var st = window.getComputedStyle(el, null);
-	var tr = st.getPropertyValue("-webkit-transform") ||
-	         st.getPropertyValue("-moz-transform") ||
-	         st.getPropertyValue("-ms-transform") ||
-	         st.getPropertyValue("-o-transform") ||
-	         st.getPropertyValue("transform") ||
-	         "FAIL";
-	
-	var values = tr.split('(')[1].split(')')[0].split(',');
-	var a = values[0];
-	var b = values[1];
-	
-	var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
-	
-	return angle;
-}
-
+/**
+ * Gets the photo fullscreened
+ * @returns {Number} index of the selected photo in the photos array 
+ */
 function getActualPhoto(){
 	if(userPath[userPath.length-3] == 3){
 		for(var i = 0; i < photos.length;i++){
@@ -108,12 +96,19 @@ function getActualPhoto(){
 	return i;
 }
 
+/**
+ * Set the start to the automatic reproduction of the images
+ * @param index of the current image to start the automatic display
+ */
 function slideShow(index){
 	slideIndex = index - 1;
 	
 	timer = window.setInterval(nextSlide, 2500);
 }
 
+/**
+ * Put the next photo slide on the screen
+ */
 function nextSlide(){
 	slideIndex++;
 	
@@ -144,3 +139,97 @@ function nextSlide(){
 	}
 }
 
+/**
+ * Navigate forward on the viewer, set the next photography on the viewer
+ */
+function nextPhoto(){	
+	//Si estas en fullscreen i l'anterior es la galeria de flickr
+	if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 3){
+		for(var i = 0; i < photos.length;i++){
+			if(photos[i].id == focused.id){
+				break;
+			}
+		}
+		$('.fullscreenPhoto').attr('src',photos[i+1].url);
+		focused.url = photos[i+1].url;
+		focused.id = photos[i+1].id;
+	} else {
+		//Si estas en fullscreen i l'anterior es la coutry galery
+		if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 6){
+			for(var i = 0; i < countryPhotos.length; i++){
+				if(countryPhotos[i] === $('.fullscreenPhoto').attr('src')){
+					break;
+				}
+			}
+			$('.fullscreenPhoto').attr('src',countryPhotos[i+1]);
+		} else {
+			//Si estas al viewer i vens de la galeria de flickr
+			if(userPath[userPath.length-2] == 3){
+				for(var i = 0; i < photos.length;i++){
+					if(photos[i].id == focused.id){
+						break;
+					}
+				}
+				$('.viewPhoto').attr('src',photos[i+1].url);
+				focused.url = photos[i+1].url;
+				focused.id = photos[i+1].id;
+			}else{
+				//Si vens de la country galeria
+				for(var i = 0; i < countryPhotos.length; i++){
+					if(countryPhotos[i] === $('.viewPhoto').attr('src')){
+						break;
+					}
+				}
+				$('.viewPhoto').attr('src',countryPhotos[i+1]);
+			}
+		}
+	}	
+}
+
+/**
+ * Navigate backward on the viewer, set the next photography on the viewer
+ */
+function previousPhoto(){
+	
+	//Si estas en fullscreen i l'anterior es la galeria de flickr
+	if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 3){
+		for(var i = 0; i < photos.length;i++){
+			if(photos[i].id == focused.id){
+				break;
+			}
+		}
+		$('.fullscreenPhoto').attr('src',photos[i-1].url);
+		focused.url = photos[i-1].url;
+		focused.id = photos[i-1].id;
+	} else {
+		//Si estas en fullscreen i l'anterior es la coutry galery
+		if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 6){
+			for(var i = 0; i < countryPhotos.length; i++){
+				if(countryPhotos[i] === $('.fullscreenPhoto').attr('src')){
+					break;
+				}
+			}
+			$('.fullscreenPhoto').attr('src',countryPhotos[i-1]);
+		} else {
+			//Si estas al viewer i vens de la galeria de flickr
+			if(userPath[userPath.length-2] == 3){
+				for(var i = 0; i < photos.length;i++){
+					if(photos[i].id == focused.id){
+						break;
+					}
+				}
+				$('.viewPhoto').attr('src',photos[i-1].url);
+				focused.url = photos[i-1].url;
+				focused.id = photos[i-1].id;
+			}else{
+				//Si vens de la country galeria
+				for(var i = 0; i < countryPhotos.length; i++){
+					if(countryPhotos[i] === $('.viewPhoto').attr('src')){
+						break;
+					}
+				}
+				$('.viewPhoto').attr('src',countryPhotos[i-1]);
+			}
+		}
+	}	
+}

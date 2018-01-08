@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/TVinteractiva" version="0.2.2" viewmodes="maximized">
     <tizen:application id="OvebFHThlQ.TVinteractiva" package="OvebFHThlQ" required_version="2.3"/>
+    <author>Nuria Gomez &amp; Eric Batlle</author>
     <content src="index.html"/>
+    <description>Aperture is based on a photo-viewer which can pick your photos from your favourite websites like flickr.&#xD;
+It can also classify your pictures from the countries where they have been taken and show them on a map.</description>
     <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
     <icon src="icon_aperture.png"/>
     <tizen:metadata key="http://samsung.com/tv/metadata/prelaunch.support" value="true"/>

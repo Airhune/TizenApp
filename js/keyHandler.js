@@ -1,5 +1,8 @@
 window.onload = function(){
 	
+	/**
+	 * Handler for every key interaction with the App
+	 */
 	document.addEventListener("keydown", function(e) {
 		if(e.keyCode){
 
@@ -13,7 +16,7 @@ window.onload = function(){
 						break;
 			}			
 			
-			
+			//SpecificPage Key-Cases
 			switch (currentPage){
 				//MAIN PAGE
 				case 1:
@@ -22,7 +25,7 @@ window.onload = function(){
 							goPage($(".focused").attr("name"));
 							break;
 						default:
-								break;
+							break;
 					}
 					break;
 				//FLICKR FORM
@@ -32,7 +35,7 @@ window.onload = function(){
 							//Initiate keyboard
 							activateKeypad('#testInput');
 					    	//goes to flickrGallery according to username
-					    	if(usernameIsValid()){goPage("flickrGallery");}
+					    	if(usernameIsNotEmpty()){goPage("flickrGallery");}
 							break;
 						case VK_RIGHT:
 						case VK_UP:
@@ -77,32 +80,25 @@ window.onload = function(){
 						case VK_YELLOW:
 							rotateDeg("clock");
 							 break;
-
 						case VK_BLUE:
 							rotateDeg("counterClock");
 							break;
-							
 						case VK_GREEN:
 							goPage('europeMap');
 							break;
-							
 						case VK_RED:
 							goPage('fullscreen');
 							break;
-							
 						case VK_RIGHT:
 							nextPhoto();
 							break;
-							
 						case VK_LEFT:
 							previousPhoto();
 							break;
-							
 						case VK_PLAY:
 							goPage('fullscreen');
 							slideShow(getActualPhoto());
 							break;
-								
 						default:
 								break;
 					}
@@ -117,7 +113,7 @@ window.onload = function(){
 								break;
 					}
 					break;
-					
+				//FULLSCREEN					
 				case 7:
 					switch (e.keyCode){
 						case VK_ENTER:
@@ -129,7 +125,6 @@ window.onload = function(){
 						case VK_RIGHT:
 							nextPhoto();
 							break;
-							
 						case VK_LEFT:
 							previousPhoto();
 							break;
@@ -138,7 +133,6 @@ window.onload = function(){
 					}
 					break;
 			}
-		}
-			
+		}			
 	},false);
 };

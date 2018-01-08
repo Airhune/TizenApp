@@ -1,4 +1,7 @@
- function showFlickrPhotos(photos){
+/**
+ * jQuery version of the html to display the flickr version gallery
+ */
+function showFlickrPhotos(photos){
 	 var mainContainer = $('.mainContainer');
 	 var flickrGallery = $("<div class='container-fluid flickrGallery'></div>");
 	 	mainContainer.append(flickrGallery);
@@ -36,6 +39,9 @@
 	 $('.flickrGallery').append(bar);  
  }
  
+/**
+ * From the photos requested, set the variable countries to set map correlation between images and countries
+ */
  function setMapLocations(photos){
 	 //Fill the country variable with the photos location...
 	 //...Set first one as a reference
@@ -69,6 +75,9 @@
 	 }
  }
 
+ /**
+  * jQuery version of the html to display the country version gallery
+  */
  function showCountryPhotos(photos){
 	 var mainContainer = $('.mainContainer');
 	 var flickrGallery = $("<div class='container-fluid flickrGallery'></div>");
@@ -106,6 +115,9 @@
 	 $('.flickrGallery').append(bar);
 }
 
+ /**
+  * Save photos from the country selected
+  */
 function selectCountryPhotos(){
 	countryPhotos = new Array();
 	var current_className = $.caph.focus.controllerProvider.getInstance().getCurrentFocusItem().className.split(' ')[0];
@@ -124,91 +136,3 @@ function selectCountryPhotos(){
 	}
 }
 
-function nextPhoto(){	
-	//Si estas en fullscreen i l'anterior es la galeria de flickr
-	if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 3){
-		for(var i = 0; i < photos.length;i++){
-			if(photos[i].id == focused.id){
-				break;
-			}
-		}
-		$('.fullscreenPhoto').attr('src',photos[i+1].url);
-		focused.url = photos[i+1].url;
-		focused.id = photos[i+1].id;
-	} else {
-		//Si estas en fullscreen i l'anterior es la coutry galery
-		if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 6){
-			for(var i = 0; i < countryPhotos.length; i++){
-				if(countryPhotos[i] === $('.fullscreenPhoto').attr('src')){
-					break;
-				}
-			}
-			$('.fullscreenPhoto').attr('src',countryPhotos[i+1]);
-		} else {
-			//Si estas al viewer i vens de la galeria de flickr
-			if(userPath[userPath.length-2] == 3){
-				for(var i = 0; i < photos.length;i++){
-					if(photos[i].id == focused.id){
-						break;
-					}
-				}
-				$('.viewPhoto').attr('src',photos[i+1].url);
-				focused.url = photos[i+1].url;
-				focused.id = photos[i+1].id;
-			}else{
-				//Si vens de la country galeria
-				for(var i = 0; i < countryPhotos.length; i++){
-					if(countryPhotos[i] === $('.viewPhoto').attr('src')){
-						break;
-					}
-				}
-				$('.viewPhoto').attr('src',countryPhotos[i+1]);
-			}
-		}
-	}	
-}
-
-function previousPhoto(){
-	
-	//Si estas en fullscreen i l'anterior es la galeria de flickr
-	if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 3){
-		for(var i = 0; i < photos.length;i++){
-			if(photos[i].id == focused.id){
-				break;
-			}
-		}
-		$('.fullscreenPhoto').attr('src',photos[i-1].url);
-		focused.url = photos[i-1].url;
-		focused.id = photos[i-1].id;
-	} else {
-		//Si estas en fullscreen i l'anterior es la coutry galery
-		if(userPath[userPath.length-1] == 7 && userPath[userPath.length-3] == 6){
-			for(var i = 0; i < countryPhotos.length; i++){
-				if(countryPhotos[i] === $('.fullscreenPhoto').attr('src')){
-					break;
-				}
-			}
-			$('.fullscreenPhoto').attr('src',countryPhotos[i-1]);
-		} else {
-			//Si estas al viewer i vens de la galeria de flickr
-			if(userPath[userPath.length-2] == 3){
-				for(var i = 0; i < photos.length;i++){
-					if(photos[i].id == focused.id){
-						break;
-					}
-				}
-				$('.viewPhoto').attr('src',photos[i-1].url);
-				focused.url = photos[i-1].url;
-				focused.id = photos[i-1].id;
-			}else{
-				//Si vens de la country galeria
-				for(var i = 0; i < countryPhotos.length; i++){
-					if(countryPhotos[i] === $('.viewPhoto').attr('src')){
-						break;
-					}
-				}
-				$('.viewPhoto').attr('src',countryPhotos[i-1]);
-			}
-		}
-	}	
-}
